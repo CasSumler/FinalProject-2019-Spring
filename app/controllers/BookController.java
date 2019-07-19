@@ -1,7 +1,6 @@
 package controllers;
 
-import models.Book;
-import models.BookRepository;
+import models.*;
 import play.data.FormFactory;
 import play.db.jpa.Transactional;
 import play.mvc.Controller;
@@ -14,18 +13,25 @@ public class BookController extends Controller
 {
     private FormFactory formFactory;
     private BookRepository bookRepository;
+    private AuthorRepository authorRepository;
+    private BookStatusRepository bookStatusRepository;
 
     @Inject
-    public BookController(FormFactory formFactory, BookRepository bookRepository)
+    public BookController(FormFactory formFactory, BookRepository bookRepository, AuthorRepository authorRepository,
+                          BookStatusRepository bookStatusRepository)
     {
         this.formFactory = formFactory;
         this.bookRepository = bookRepository;
+        this.authorRepository = authorRepository;
+        this.bookStatusRepository = bookStatusRepository;
     }
 
     @Transactional(readOnly = true)
     public Result getList()
     {
-        return ok(views.html.Book.render());
+        List<BookDetail> books = bookRepository.getDetailList();
+
+        return ok(views.html.Book.render(books));
     }
 
     @Transactional(readOnly = true)

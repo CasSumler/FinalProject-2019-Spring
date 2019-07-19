@@ -1,3 +1,4 @@
+@(books : List[BookDetail])
 @doctype.render
 <html lang="en">
     <head>
@@ -6,6 +7,20 @@
     </head>
     <body>
         <h1>Library</h1>
+        <table>
+            <tr>
+                <th>Book Title</th>
+            </tr>
+            @for(book <- books){
+            <tr>
+                <td>@book.getBookName</td>
+                <td>@book.getFirstName</td>
+                <td>@book.getLastName</td>
+                <td>@book.getBookStatusName</td>
+            </tr>
+            }
+        </table>
+
         <ul>Once I get data into the database, this page will show:
             <li>search box to search by book title or author</li>
             <li>list of book titles, authors, and status listed alphabetically by book</li>

@@ -1,13 +1,14 @@
 package models;
 
+import javax.persistence.Entity;
 import javax.persistence.Id;
 
+@Entity
 public class Book
 {
     @Id
     private int bookId;
     private String bookName;
-    private byte[] image;
     private String ISBN;
     private int authorId;
     private int bookStatusId;
@@ -22,11 +23,6 @@ public class Book
     public String getBookName()
     {
         return bookName;
-    }
-
-    public byte[] getImage()
-    {
-        return image;
     }
 
     public String getISBN()

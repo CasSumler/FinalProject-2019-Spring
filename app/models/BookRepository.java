@@ -18,8 +18,19 @@ public class BookRepository
 
     public List<Book> getList()
     {
-        String sql = "SELECT b FROM Book ORDER BY bookName";
-        TypedQuery query = jpaApi.em().createQuery(sql, Book.class);
+        String sql = "SELECT b FROM Book b ORDER BY b.bookName";
+        TypedQuery<Book> query = jpaApi.em().createQuery(sql, Book.class);
+        return query.getResultList();
+    }
+
+    public List<BookDetail> getDetailList()
+    {
+        String sql = "SELECT NEW BookDetail(b.bookId, b.bookName, a.firstName, a.lastName, bs.bookStatusName) " +
+                "FROM Book b " +
+                "JOIN Author a ON b.authorId = a.authorId " +
+                "JOIN BookStatus bs ON b.bookStatusId = bs.bookStatusId " +
+                "ORDER BY b.bookName";
+        TypedQuery<BookDetail> query = jpaApi.em().createQuery(sql, BookDetail.class);
         return query.getResultList();
     }
 }
