@@ -1,0 +1,23 @@
+@(genres : List[Genre])
+@doctype.render
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Genres</title>
+    </head>
+    <body>
+        <h1>List of Genres</h1>
+        <table>
+            <tr>
+                <th>Genre ID</th>
+                <th>Genre Name</th>
+            </tr>
+            @for(genre <- genres){
+            <tr>
+                <td>@genre.getGenreId</td>
+                <td>@genre.getGenreName</td>
+            </tr>
+            }
+        </table>
+    </body>
+</html>

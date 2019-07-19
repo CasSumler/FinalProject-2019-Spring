@@ -1,4 +1,4 @@
-name := """final-project-starter"""
+name := """CassiBooks"""
 
 version := "1.0-SNAPSHOT"
 
