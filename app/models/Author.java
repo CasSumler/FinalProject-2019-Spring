@@ -25,4 +25,19 @@ public class Author
     {
         return firstName;
     }
+
+    public void setAuthorId(int authorId)
+    {
+        this.authorId = authorId;
+    }
+
+    public void setLastName(String lastName)
+    {
+        this.lastName = lastName;
+    }
+
+    public void setFirstName(String firstName)
+    {
+        this.firstName = firstName;
+    }
 }

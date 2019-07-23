@@ -22,4 +22,9 @@ public class AuthorRepository
         TypedQuery<Author> query = jpaApi.em().createQuery(sql, Author.class);
         return query.getResultList();
     }
+
+    public void add(Author author)
+    {
+        jpaApi.em().persist(author);
+    }
 }

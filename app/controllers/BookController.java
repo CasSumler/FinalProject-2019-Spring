@@ -56,9 +56,16 @@ public class BookController extends Controller
         return ok(views.html.DisplayBook.render(book));
     }
 
+    @Transactional(readOnly = true)
     public Result getAddBook()
     {
-        return ok(views.html.AddBook.render());
+        Book book = new Book();
+        List<Author> authors = authorRepository.getList();
+        List<BookType> bookTypes = bookTypeRepository.getList();
+        List<Genre> genres = genreRepository.getList();
+        List<BookStatus> bookStatuses = bookStatusRepository.getList();
+
+        return ok(views.html.AddBook.render(book, authors, bookTypes, genres, bookStatuses));
     }
 
     @Transactional
@@ -68,7 +75,20 @@ public class BookController extends Controller
 
         Book book = new Book();
         String bookName = form.get("bookName");
+        String ISBN = form.get("ISBN");
+        int authorId = Integer.parseInt(form.get("authorId"));
+        int bookTypeId = Integer.parseInt(form.get("bookTypeId"));
+        int genreId = Integer.parseInt(form.get("genreId"));
+        int bookStatusId = Integer.parseInt(form.get("bookStatusId"));
+
         book.setBookName(bookName);
+        book.setISBN(ISBN);
+        book.setAuthorId(authorId);
+        book.setBookTypeId(bookTypeId);
+        book.setGenreId(genreId);
+        book.setBookStatusId(bookStatusId);
+
+        bookRepository.addBook(book);
 
         return redirect(routes.BookController.getList());
     }
@@ -113,6 +133,27 @@ public class BookController extends Controller
         List<Author> authors = authorRepository.getList();
 
         return ok(views.html.Author.render(authors));
+    }
+
+    public Result getAddAuthor()
+    {
+        return ok(views.html.AddAuthor.render());
+    }
+
+    @Transactional
+    public Result postAddAuthor()
+    {
+        DynamicForm form = formFactory.form().bindFromRequest();
+
+        Author author = new Author();
+        String firstName = form.get("firstName");
+        String lastName = form.get("lastName");
+        author.setFirstName(firstName);
+        author.setLastName(lastName);
+
+        authorRepository.add(author);
+
+        return redirect(routes.BookController.getAuthorList());
     }
 
     @Transactional(readOnly = true)

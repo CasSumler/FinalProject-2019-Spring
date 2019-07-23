@@ -16,6 +16,9 @@ GET     /library                    controllers.BookController.getList
 GET     /book/:id                   controllers.BookController.getBook(id : Integer)
 
 GET     /authors                    controllers.BookController.getAuthorList
+GET     /addauthor                  controllers.BookController.getAddAuthor
+POST    /addauthor                  controllers.BookController.postAddAuthor
+
 GET     /statuses                   controllers.BookController.getStatusList
 GET     /categories                 controllers.BookController.getTypeList
 

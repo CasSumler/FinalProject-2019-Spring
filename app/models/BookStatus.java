@@ -19,4 +19,14 @@ public class BookStatus
     {
         return bookStatusName;
     }
+
+    public void setBookStatusId(int bookStatusId)
+    {
+        this.bookStatusId = bookStatusId;
+    }
+
+    public void setBookStatusName(String bookStatusName)
+    {
+        this.bookStatusName = bookStatusName;
+    }
 }

@@ -19,4 +19,14 @@ public class BookType
     {
         return bookTypeName;
     }
+
+    public void setBookTypeId(int bookTypeId)
+    {
+        this.bookTypeId = bookTypeId;
+    }
+
+    public void setBookTypeName(String bookTypeName)
+    {
+        this.bookTypeName = bookTypeName;
+    }
 }
