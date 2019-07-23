@@ -16,7 +16,7 @@ CREATE TABLE Author (
 
 CREATE TABLE Genre (
                 GenreId INT AUTO_INCREMENT NOT NULL,
-                GenreName VARCHAR(50) NOT NULL,
+                GenreName VARCHAR(100) NOT NULL,
                 PRIMARY KEY (GenreId)
 );
 
@@ -30,7 +30,7 @@ CREATE TABLE BookType (
 
 CREATE TABLE Book (
                 BookId INT AUTO_INCREMENT NOT NULL,
-                BookName VARCHAR(50) NOT NULL,
+                BookName VARCHAR(100) NOT NULL,
                 Image LONGBLOB NOT NULL,
                 ISBN CHAR(13) NOT NULL,
                 AuthorId INT NOT NULL,

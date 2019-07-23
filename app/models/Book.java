@@ -49,4 +49,39 @@ public class Book
     {
         return genreId;
     }
+
+    public void setBookId(int bookId)
+    {
+        this.bookId = bookId;
+    }
+
+    public void setBookName(String bookName)
+    {
+        this.bookName = bookName;
+    }
+
+    public void setISBN(String ISBN)
+    {
+        this.ISBN = ISBN;
+    }
+
+    public void setAuthorId(int authorId)
+    {
+        this.authorId = authorId;
+    }
+
+    public void setBookStatusId(int bookStatusId)
+    {
+        this.bookStatusId = bookStatusId;
+    }
+
+    public void setBookTypeId(int bookTypeId)
+    {
+        this.bookTypeId = bookTypeId;
+    }
+
+    public void setGenreId(int genreId)
+    {
+        this.genreId = genreId;
+    }
 }

@@ -18,7 +18,7 @@ public class BookStatusRepository
 
     public List<BookStatus> getList()
     {
-        String sql = "SELECT bs FROM BookStatus bs ORDER BY bs.bookStatusName";
+        String sql = "SELECT bs FROM BookStatus bs ORDER BY bs.bookStatusId";
         TypedQuery<BookStatus> query = jpaApi.em().createQuery(sql, BookStatus.class);
         return query.getResultList();
     }

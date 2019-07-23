@@ -1,0 +1,25 @@
+@(bookStatuses : List[BookStatus])
+@doctype.render
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Book Status</title>
+    </head>
+    <body>
+        <h1>List of Book Statuses</h1>
+        <p>Total: @bookStatuses.size</p>
+
+        <table>
+            <tr>
+                <th>Book Status ID</th>
+                <th>Status Name</th>
+            </tr>
+            @for(bookStatus <- bookStatuses){
+            <tr>
+                <td>@bookStatus.getBookStatusId</td>
+                <td>@bookStatus.getBookStatusName</td>
+            </tr>
+            }
+        </table>
+    </body>
+</html>

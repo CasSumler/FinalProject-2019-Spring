@@ -11,9 +11,23 @@ POST    /test                       controllers.TestController.postTest
 
 GET     /genre                      controllers.GenreController.getList
 
-GET     /book                       controllers.BookController.getList
+GET     /home                       controllers.BookController.getHomePage
+GET     /library                    controllers.BookController.getList
+GET     /book/:id                   controllers.BookController.getBook(id : Integer)
+
+GET     /authors                    controllers.BookController.getAuthorList
+GET     /statuses                   controllers.BookController.getStatusList
+GET     /categories                 controllers.BookController.getTypeList
+
+GET     /genres                     controllers.BookController.getGenreList
+GET     /addgenre                   controllers.BookController.getAddGenre
+POST    /addgenre                   controllers.BookController.postAddGenre
+
 GET     /addbook                    controllers.BookController.getAddBook
-GET     /editbook                   controllers.BookController.getEditBook
+POST    /addbook                    controllers.BookController.postAddBook
+
+GET     /editbook/:id               controllers.BookController.getEditBook(id : Integer)
+POST    /editbook/:id               controllers.BookController.postEditBook(id : Integer)
 
 GET     /testdb                     controllers.TestController.getTestDb
 POST    /testdb                     controllers.TestController.postTestDb

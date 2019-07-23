@@ -18,9 +18,8 @@ public class BookTypeRepository
 
     public List<BookType> getList()
     {
-        String sql = "SELECT bt FROM BookType ORDER BY bt.bookTypeName";
+        String sql = "SELECT bt FROM BookType bt ORDER BY bt.bookTypeName";
         TypedQuery<BookType> query = jpaApi.em().createQuery(sql, BookType.class);
         return query.getResultList();
-
     }
 }

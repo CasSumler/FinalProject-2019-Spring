@@ -5,7 +5,16 @@
         <title>Add Book</title>
     </head>
     <body>
-        <h1>Add Book Page</h1>
+        <h1>Add Book</h1>
+
+        <form method="post">
+            @helper.CSRF.formField
+            <label for="bookName">Book Title:</label>
+            <input type="text" name="bookName" id="bookName">
+
+            <input type="submit" value="Add">
+        </form>
+
         <ul>all fields show up blank so user can type/choose them
             <li>book name</li>
             <li>author first name and last name fields</li>

@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Add a Genre</title>
+    </head>
+    <body>
+        <form method="post">
+            @helper.CSRF.formField
+            <label for="genreName">Genre Name:</label>
+            <input type="text" name="genreName" id="genreName">
+            <input type="submit" value="Add">
+        </form>
+    </body>
+</html>

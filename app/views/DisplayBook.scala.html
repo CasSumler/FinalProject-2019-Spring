@@ -1,0 +1,17 @@
+@(book : Book)
+@doctype.render
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Book Information</title>
+    </head>
+    <body>
+        <h1>@book.getBookName</h1>
+        <p>This page will display all the book info plus an edit and delete button</p>
+        <img src="http://covers.openlibrary.org/b/isbn/@book.getISBN-L.jpg" alt="book cover image">
+        <p>Author:</p>
+        <p>Status: @book.getBookStatusId</p>
+        <p>Category:</p>
+        <p>Genre:</p>
+    </body>
+</html>

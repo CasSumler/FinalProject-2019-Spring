@@ -19,4 +19,14 @@ public class Genre
     {
         return genreName;
     }
+
+    public void setGenreId(int genreId)
+    {
+        this.genreId = genreId;
+    }
+
+    public void setGenreName(String genreName)
+    {
+        this.genreName = genreName;
+    }
 }

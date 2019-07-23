@@ -23,4 +23,9 @@ public class GenreRepository
         return query.getResultList();
     }
 
+    public void add(Genre genre)
+    {
+        jpaApi.em().persist(genre);
+    }
+
 }

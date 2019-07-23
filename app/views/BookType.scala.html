@@ -1,0 +1,25 @@
+@(bookTypes : List[BookType])
+@doctype.render
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>List of Book Categories</title>
+    </head>
+    <body>
+        <h1>List of Book Categories</h1>
+        <p>Total: @bookTypes.size</p>
+
+        <table>
+            <tr>
+                <th>Category ID</th>
+                <th>Category Name</th>
+            </tr>
+            @for(bookType <- bookTypes){
+            <tr>
+                <td>@bookType.getBookTypeId</td>
+                <td>@bookType.getBookTypeName</td>
+            </tr>
+            }
+        </table>
+    </body>
+</html>
