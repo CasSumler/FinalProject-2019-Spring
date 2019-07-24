@@ -18,52 +18,41 @@
                     </div>
                     <div class="col-9">
                         <div class="row">
-                            <div class="col-1"></div>
-                            <div class="col-8">
+                            <div class="col-2"></div>
+                            <div class="col-10">
                                 <div class="form-group">
                                     <label for="bookName">Book Title:</label>
                                     <input type="text" class="form-control" name="bookName" id="bookName" value="@book.getBookName">
                                 </div>
                             </div>
+                        </div>
+                        <br>
+                        <div class="row">
+                            <div class="col-2"></div>
                             <div class="col-3">
                                 <div class="form-group">
                                     <label for="ISBN">ISBN:</label>
                                     <input type="text" class="form-control" name="ISBN" id="ISBN" value="@book.getISBN">
                                 </div>
                             </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-1"></div>
-                            <div class="col-3">
-                                <label for="firstName">Author First Name:</label>
-                                <select class="form-control" name="firstName" id="firstName">
+                            <div class="col-4">
+                                <label for="authorName">Author Name:</label>
+                                <select class="form-control" name="authorName" id="authorName">
                                     @for(author <- authors){
                                     @if(book.getAuthorId == author.getAuthorId){
-                                    <option value="@author.getAuthorId" selected>@author.getFirstName
+                                    <option value="@author.getAuthorId" selected>@author.getFirstName @author.getLastName
                                     </option>
                                     }else{
-                                    <option value="@author.getAuthorId">@author.getFirstName</option>
+                                    <option value="@author.getAuthorId">@author.getFirstName @author.getLastName</option>
                                     }
                                     }
                                 </select>
                             </div>
-                            <div class="col-3">
-                                <label for="lastName">Author Last Name:</label>
-                                <select class="form-control" name="lastName" id="lastName">
-                                    @for(author <- authors){
-                                    @if(book.getAuthorId == author.getAuthorId){
-                                    <option value="@author.getAuthorId" selected>@author.getLastName
-                                    </option>
-                                    }else{
-                                    <option value="@author.getAuthorId">@author.getLastName</option>
-                                    }
-                                    }
-                                </select>
-                            </div>
+                            <div class="col-3"></div>
                         </div>
                         <br>
                         <div class="row">
-                            <div class="col-1"></div>
+                            <div class="col-2"></div>
                             <div class="col-3">
                                 <label for="bookStatusId">Status:</label>
                                 <select class="form-control" name="bookStatusId" id="bookStatusId">
@@ -77,7 +66,6 @@
                                     }
                                 </select>
                             </div>
-                            <div class="col-1"></div>
                             <div class="col-3">
                                 <label for="bookTypeId">Category:</label>
                                 <select class="form-control" name="bookTypeId" id="bookTypeId">
@@ -91,7 +79,6 @@
                                     }
                                 </select>
                             </div>
-                            <div class="col-1"></div>
                             <div class="col-3">
                                 <label for="genreId">Genre:</label>
                                 <select class="form-control" name="genreId" id="genreId">
@@ -105,17 +92,19 @@
                                     }
                                 </select>
                             </div>
+                            <div class="col-1"></div>
                         </div>
                         <br>
+                        <br>
                         <div class="row">
-                            <div class="col-2"></div>
-                            <div class="col-4">
-                                <input type="submit" class="form-control btn btn-primary" value="Save Changes">
+                            <div class="col-3"></div>
+                            <div class="col-3">
+                                <input type="submit" class="form-control btn btn-primary" value="Save">
                             </div>
-                            <div class="col-4">
-                                <a href="@routes.BookController.getList" class="form-control btn btn-danger">Cancel</a>
+                            <div class="col-3">
+                                <a href="@routes.BookController.getBookInfo(book.getBookId)" class="form-control btn btn-danger">Cancel</a>
                             </div>
-                            <div class="col-2"></div>
+                            <div class="col-3"></div>
                         </div>
                     </div>
                 </div>

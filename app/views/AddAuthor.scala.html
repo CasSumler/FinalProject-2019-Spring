@@ -3,8 +3,11 @@
     <head>
         <meta charset="UTF-8">
         <title>Add Author</title>
+        <link rel="stylesheet" href="/assets/lib/bootstrap/css/bootstrap.min.css">
     </head>
     <body>
+        <div class="container">
+            <h1>Add an Author</h1>
         <form method="post">
             @helper.CSRF.formField
             <label for="firstName">First Name:</label>
@@ -14,5 +17,6 @@
             <input type="text" name="lastName" id="lastName">
             <input type="submit" value="Add">
         </form>
+        </div>
     </body>
 </html>

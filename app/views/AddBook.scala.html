@@ -4,78 +4,108 @@
     <head>
         <meta charset="UTF-8">
         <title>Add Book</title>
+        <link rel="stylesheet" href="/assets/lib/bootstrap/css/bootstrap.min.css">
     </head>
     <body>
-        <h1>Add Book</h1>
+        <h1 class="text-center">Add Book</h1>
 
         <form method="post">
             @helper.CSRF.formField
-            <label for="bookName">Book Title:</label>
-            <input type="text" name="bookName" id="bookName">
-
-            <label for="ISBN">ISBN:</label>
-            <input type="text" name="ISBN" id="ISBN">
-
-            <label for="authorId">Author Name:</label>
-            <select class="form-control" name="authorId" id="authorId">
-                @for(author <- authors){
-                @if(book.getAuthorId == author.getAuthorId){
-                <option value="@author.getAuthorId" selected>@author.getFirstName @author.getLastName
-                </option>
-                }else{
-                <option value="@author.getAuthorId">@author.getFirstName @author.getLastName</option>
-                }
-                }
-            </select>
-
-            <label for="bookTypeId">Category:</label>
-            <select class="form-control" name="bookTypeId" id="bookTypeId">
-                @for(bookType <- bookTypes){
-                @if(book.getBookTypeId == bookType.getBookTypeId){
-                <option value="@bookType.getBookTypeId" selected>@bookType.getBookTypeName
-                </option>
-                }else{
-                <option value="@bookType.getBookTypeId">@bookType.getBookTypeName</option>
-                }
-                }
-            </select>
-
-            <label for="genreId">Genre:</label>
-            <select class="form-control" name="genreId" id="genreId">
-                @for(genre <- genres){
-                @if(book.getGenreId == genre.getGenreId){
-                <option value="@genre.getGenreId" selected>@genre.getGenreName
-                </option>
-                }else{
-                <option value="@genre.getGenreId">@genre.getGenreName</option>
-                }
-                }
-            </select>
-
-            <label for="bookStatusId">Status:</label>
-            <select class="form-control" name="bookStatusId" id="bookStatusId">
-                @for(bookStatus <- bookStatuses){
-                @if(book.getBookStatusId == bookStatus.getBookStatusId){
-                <option value="@bookStatus.getBookStatusId" selected>@bookStatus.getBookStatusName
-                </option>
-                }else{
-                <option value="@bookStatus.getBookStatusId">@bookStatus.getBookStatusName</option>
-                }
-                }
-            </select>
-
-            <input type="submit" value="Add">
+            <div class="row">
+                <div class="col-3"></div>
+                <div class="col-6">
+                    <div class="form-group">
+                        <label for="bookName">Book Title:</label>
+                        <input type="text" class="form-control" name="bookName" id="bookName">
+                    </div>
+                </div>
+                <div class="col-3"></div>
+            </div>
+            <div class="row">
+                <div class="col-3"></div>
+                <div class="col-2">
+                    <div class="form-group">
+                        <label for="authorId">Author Name:</label>
+                        <select class="form-control" name="authorId" id="authorId">
+                            @for(author <- authors){
+                            @if(book.getAuthorId == author.getAuthorId){
+                            <option value="@author.getAuthorId" selected>@author.getFirstName @author.getLastName
+                            </option>
+                            }else{
+                            <option value="@author.getAuthorId">@author.getFirstName @author.getLastName</option>
+                            }
+                            }
+                        </select>
+                    </div>
+                </div>
+                <div class="col-2">
+                    <div class="form-group">
+                        <label for="ISBN">ISBN:</label>
+                        <input type="text" class="form-control" name="ISBN" id="ISBN">
+                    </div>
+                </div>
+                <div class="col-2">
+                    <div class="form-group">
+                        <label for="bookTypeId">Category:</label>
+                        <select class="form-control" name="bookTypeId" id="bookTypeId">
+                            @for(bookType <- bookTypes){
+                            @if(book.getBookTypeId == bookType.getBookTypeId){
+                            <option value="@bookType.getBookTypeId" selected>@bookType.getBookTypeName
+                            </option>
+                            }else{
+                            <option value="@bookType.getBookTypeId">@bookType.getBookTypeName</option>
+                            }
+                            }
+                        </select>
+                    </div>
+                </div>
+                <div class="col-3"></div>
+            </div>
+            <div class="row">
+                <div class="col-4"></div>
+                <div class="col-2">
+                    <div class="form-group">
+                        <label for="genreId">Genre:</label>
+                        <select class="form-control" name="genreId" id="genreId">
+                            @for(genre <- genres){
+                            @if(book.getGenreId == genre.getGenreId){
+                            <option value="@genre.getGenreId" selected>@genre.getGenreName
+                            </option>
+                            }else{
+                            <option value="@genre.getGenreId">@genre.getGenreName</option>
+                            }
+                            }
+                        </select>
+                    </div>
+                </div>
+                <div class="col-2">
+                    <div class="form-group">
+                        <label for="bookStatusId">Status:</label>
+                        <select class="form-control" name="bookStatusId" id="bookStatusId">
+                            @for(bookStatus <- bookStatuses){
+                            @if(book.getBookStatusId == bookStatus.getBookStatusId){
+                            <option value="@bookStatus.getBookStatusId" selected>@bookStatus.getBookStatusName
+                            </option>
+                            }else{
+                            <option value="@bookStatus.getBookStatusId">@bookStatus.getBookStatusName</option>
+                            }
+                            }
+                        </select>
+                    </div>
+                </div>
+                <div class="col-4"></div>
+            </div>
+            <div class="row">
+                <div class="col-5"></div>
+                <div class="col-1">
+                    <input type="submit" class="form-control btn btn-primary" value="Add">
+                </div>
+                <div class="col-1">
+                    <a href="@routes.BookController.getHomePage"
+                       class="form-control">Cancel</a>
+                </div>
+                <div class="col-5"></div>
+            </div>
         </form>
-
-        <ul>all fields show up blank so user can type/choose them
-            <li>book name</li>
-            <li>author first name and last name fields</li>
-            <li>ISBN</li>
-            <li>book type</li>
-            <li>book genre</li>
-            <li>book status</li>
-            <li>save button --> takes back to main book list page</li>
-            <li>cancel button --> takes back to main book list page</li>
-        </ul>
     </body>
 </html>

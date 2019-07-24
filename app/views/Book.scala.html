@@ -15,7 +15,7 @@
                 <div class="col-5">
                     <form>
                         <div class="form-group">
-                            <label for="searchName">Search: </label>
+                            <label for="searchName">Search by Book: </label>
                             <input type="text" name="searchName" id="searchName">
                             <input type="submit" value="Search">
                         </div>
@@ -32,7 +32,7 @@
                 @for(book <- books){
                 <tr>
                     <td>
-                        <a href="@routes.BookController.getEditBook(book.getBookId)">@book.getBookName</a>
+                        <a href="@routes.BookController.getBookInfo(book.getBookId)">@book.getBookName</a>
                     </td>
                     <td>@book.getLastName @book.getFirstName</td>
                     <td>@book.getBookStatusName</td>

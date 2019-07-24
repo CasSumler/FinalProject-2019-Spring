@@ -24,6 +24,20 @@ public class BookRepository
         return query.getSingleResult();
     }
 
+    public BookInfo getInfo(int bookId)
+    {
+        String sql = "SELECT NEW BookInfo(b.bookId, b.bookName, b.ISBN, a.firstName, a.lastName, bs.bookStatusName, bt.bookTypeName, g.genreName) " +
+                "FROM Book b " +
+                "JOIN Author a ON b.authorId = a.authorId " +
+                "JOIN BookStatus bs ON b.bookStatusId = bs.bookStatusId " +
+                "JOIN BookType bt ON b.bookTypeId = bt.bookTypeId " +
+                "JOIN Genre g ON b.genreId = g.genreId " +
+                "WHERE bookId = :bookId";
+        TypedQuery<BookInfo> query = jpaApi.em().createQuery(sql, BookInfo.class);
+        query.setParameter("bookId", bookId);
+        return query.getSingleResult();
+    }
+
     public List<Book> getList()
     {
         String sql = "SELECT b FROM Book b ORDER BY b.bookName";

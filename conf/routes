@@ -13,7 +13,7 @@ GET     /genre                      controllers.GenreController.getList
 
 GET     /home                       controllers.BookController.getHomePage
 GET     /library                    controllers.BookController.getList
-GET     /book/:id                   controllers.BookController.getBook(id : Integer)
+GET     /book/:id                   controllers.BookController.getBookInfo(id : Integer)
 
 GET     /authors                    controllers.BookController.getAuthorList
 GET     /addauthor                  controllers.BookController.getAddAuthor

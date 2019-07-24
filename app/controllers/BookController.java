@@ -49,11 +49,11 @@ public class BookController extends Controller
     }
 
     @Transactional(readOnly = true)
-    public Result getBook(int bookId)
+    public Result getBookInfo(int bookId)
     {
-        Book book = bookRepository.get(bookId);
+        BookInfo bookInfo = bookRepository.getInfo(bookId);
 
-        return ok(views.html.DisplayBook.render(book));
+        return ok(views.html.DisplayBook.render(bookInfo));
     }
 
     @Transactional(readOnly = true)

@@ -3,13 +3,21 @@
     <head>
         <meta charset="UTF-8">
         <title>Home Page</title>
+        <link rel="stylesheet" href="/assets/lib/bootstrap/css/bootstrap.min.css">
     </head>
     <body>
-        <h1>Home Page</h1>
+        <div class="container">
+        <h1 class="text-center">Home Page</h1>
+            <br>
+            <div class="row">
+                <div class="col-4"></div>
+                <a href="@routes.BookController.getList" class="btn btn-success" role="button">Library</a>
+                <div class="col-1"></div>
+                <a href="@routes.BookController.getAuthorList" class="btn btn-secondary" role="button">Authors</a>
+                <div class="col-1"></div>
+                <a href="@routes.BookController.getAddBook" class="btn btn-primary" role="button">Add Book</a>
+            </div>
 
-        <a href="@routes.BookController.getList">Library</a>
-        <a href="@routes.BookController.getAuthorList">Authors</a>
-        <a href="@routes.BookController.getAddBook">Add Book</a>
 
 
         <ul>This page will display various buttons:
@@ -18,5 +26,6 @@
             <li>Add book button --> takes to add book page</li>
             <li>some button that will take to a chart page</li>
         </ul>
+        </div>
     </body>
 </html>
