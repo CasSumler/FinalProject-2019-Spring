@@ -130,9 +130,12 @@ public class BookController extends Controller
     @Transactional(readOnly = true)
     public Result getAuthorList()
     {
-        List<Author> authors = authorRepository.getList();
+        DynamicForm form = formFactory.form().bindFromRequest();
+        String searchName = form.get("searchName");
 
-        return ok(views.html.Author.render(authors));
+        List<AuthorSummary> authorSummaries = authorRepository.getDetailList(searchName);
+
+        return ok(views.html.Author.render(authorSummaries));
     }
 
     public Result getAddAuthor()

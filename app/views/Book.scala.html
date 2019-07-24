@@ -11,31 +11,36 @@
             <h1 class="text-center">Library</h1>
         </div>
         <div class="container">
+            <div class="row">
+                <div class="col-5">
+                    <form>
+                        <div class="form-group">
+                            <label for="searchName">Search: </label>
+                            <input type="text" name="searchName" id="searchName">
+                            <input type="submit" value="Search">
+                        </div>
+                    </form>
+                </div>
+            </div>
 
-        <form>
-            <label for="searchName">Search: </label>
-            <input type="text" name="searchName" id="searchName">
-            <input type="submit" value="Search">
-        </form>
-
-        <table class="table table-striped thead-dark table-hover">
-            <tr>
-                <th>Book Title</th>
-                <th>Author</th>
-                <th>Status</th>
-            </tr>
-            @for(book <- books){
-            <tr>
-                <td>
-                    <a href="@routes.BookController.getEditBook(book.getBookId)">@book.getBookName</a>
-                </td>
-                <td>@book.getLastName @book.getFirstName</td>
-                <td>@book.getBookStatusName</td>
-            </tr>
-            }
-        </table>
-        <br>
-        Total Number of Books: @books.size
+            <table class="table table-striped thead-dark table-hover">
+                <tr>
+                    <th>Book Title</th>
+                    <th>Author</th>
+                    <th>Status</th>
+                </tr>
+                @for(book <- books){
+                <tr>
+                    <td>
+                        <a href="@routes.BookController.getEditBook(book.getBookId)">@book.getBookName</a>
+                    </td>
+                    <td>@book.getLastName @book.getFirstName</td>
+                    <td>@book.getBookStatusName</td>
+                </tr>
+                }
+            </table>
+            <br>
+            Total Number of Books: @books.size
         </div>
     </body>
 </html>
