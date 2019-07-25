@@ -9,6 +9,7 @@ import play.mvc.Result;
 
 import javax.inject.Inject;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class BookController extends Controller
 {
@@ -199,5 +200,33 @@ public class BookController extends Controller
         genreRepository.add(genre);
 
         return redirect(routes.BookController.getGenreList());
+    }
+
+    @Transactional
+    public Result getBookStatusReport()
+    {
+        List<BookStatusSummary> bookStatusSummaries = bookStatusRepository.getBookStatusSummary();
+
+        String dataPoints = bookStatusSummaries.stream().map(bookStatusSummary -> Long.toString(bookStatusSummary.getTotalStatusCount()))
+                .collect(Collectors.joining("|"));
+
+        String dataLabels = bookStatusSummaries.stream().map(bookStatusSummary -> bookStatusSummary.getBookStatusName())
+                .collect(Collectors.joining("|"));
+
+        return ok(views.html.BookStatusChart.render(bookStatusSummaries, dataPoints, dataLabels));
+    }
+
+    @Transactional
+    public Result getBookTypeReport()
+    {
+        List<BookTypeSummary> bookTypeSummaries = bookTypeRepository.getBookTypeSummary();
+
+        String dataPoints = bookTypeSummaries.stream().map(bookTypeSummary -> Long.toString(bookTypeSummary.getTotalTypeCount()))
+                .collect(Collectors.joining("|"));
+
+        String dataLabels = bookTypeSummaries.stream().map(bookTypeSummary -> bookTypeSummary.getBookTypeName())
+                .collect(Collectors.joining("|"));
+
+        return ok(views.html.BookTypeChart.render(bookTypeSummaries, dataPoints, dataLabels));
     }
 }

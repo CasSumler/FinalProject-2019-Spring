@@ -1,0 +1,38 @@
+@(bookStatusSummaries : List[BookStatusSummary], dataPoints : String, dataLabels : String)
+@doctype.render
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Book Status Chart</title>
+        <link rel="stylesheet" href="/assets/lib/bootstrap/css/bootstrap.min.css">
+        <link rel="stylesheet" href="/assets/lib/chart.js/dist/Chart.min.css">
+        <script type="text/javascript" src="/assets/lib/chart.js/dist/Chart.min.js"></script>
+    </head>
+    <body>
+        <div class="container">
+            <h1>Status Summary</h1>
+            <div class="row">
+                <div class="col-4">
+                    <table class="table table-striped">
+                        <tr>
+                            <th>Status</th>
+                            <th>Total Book Count</th>
+                        </tr>
+                        @for(bookStatusSummary <- bookStatusSummaries){
+                        <tr>
+                            <td>@bookStatusSummary.getBookStatusName</td>
+                            <td>@bookStatusSummary.getTotalStatusCount</td>
+                        </tr>
+                        }
+                    </table>
+                </div>
+                <div class="col-1"></div>
+                <div class="col-6">
+                    <canvas id="totalStatusCount" width="200" height="200"
+                            data-points="@dataPoints" data-labels="@dataLabels"></canvas>
+                    <script type="text/javascript" src="/assets/javascripts/totalStatusCount.js"></script>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

@@ -22,4 +22,15 @@ public class BookStatusRepository
         TypedQuery<BookStatus> query = jpaApi.em().createQuery(sql, BookStatus.class);
         return query.getResultList();
     }
+
+    public List<BookStatusSummary> getBookStatusSummary()
+    {
+        String sql = "SELECT NEW BookStatusSummary(bs.bookStatusId, bs.bookStatusName, COUNT(*) AS totalStatusCount) " +
+                "FROM BookStatus bs " +
+                "JOIN Book b ON b.bookStatusId = bs.bookStatusId " +
+                "GROUP BY bs.bookStatusId, bs.bookStatusName " +
+                "ORDER BY totalStatusCount";
+        TypedQuery<BookStatusSummary> query = jpaApi.em().createQuery(sql, BookStatusSummary.class);
+        return query.getResultList();
+    }
 }
