@@ -33,4 +33,17 @@ public class BookTypeRepository
         TypedQuery<BookTypeSummary> query = jpaApi.em().createQuery(sql, BookTypeSummary.class);
         return query.getResultList();
     }
+
+    public BookType get(int bookTypeId)
+    {
+        String sql = "SELECT bt FROM BookType bt WHERE bookTypeId = :bookTypeId";
+        TypedQuery<BookType> query = jpaApi.em().createQuery(sql, BookType.class);
+        query.setParameter("bookTypeId", bookTypeId);
+        return query.getSingleResult();
+    }
+
+    public void add(BookType bookType)
+    {
+        jpaApi.em().persist(bookType);
+    }
 }

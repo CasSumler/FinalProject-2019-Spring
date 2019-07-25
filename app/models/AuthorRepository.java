@@ -57,5 +57,13 @@ public class AuthorRepository
         return query.getResultList();
     }
 
+    public Author get(int authorId)
+    {
+        String sql = "SELECT a FROM Author a WHERE authorId = :authorId";
+        TypedQuery<Author> query = jpaApi.em().createQuery(sql, Author.class);
+        query.setParameter("authorId", authorId);
+        return query.getSingleResult();
+    }
+
 
 }

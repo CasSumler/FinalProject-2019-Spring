@@ -18,17 +18,25 @@ GET     /book/:id                   controllers.BookController.getBookInfo(id : 
 GET     /authors                    controllers.BookController.getAuthorList
 GET     /addauthor                  controllers.BookController.getAddAuthor
 POST    /addauthor                  controllers.BookController.postAddAuthor
+GET     /editauthor/:id             controllers.BookController.getEditAuthor(id : Integer)
+POST    /editauthor/:id             controllers.BookController.postEditAuthor(id: Integer)
 
 GET     /statuses                   controllers.BookController.getStatusList
+
 GET     /categories                 controllers.BookController.getTypeList
+GET     /addcategory                controllers.BookController.getAddType
+POST    /addcategory                controllers.BookController.postAddType
+GET     /editcategory/:id           controllers.BookController.getEditType(id : Integer)
+POST    /editcategory/:id           controllers.BookController.postEditType(id : Integer)
 
 GET     /genres                     controllers.BookController.getGenreList
 GET     /addgenre                   controllers.BookController.getAddGenre
 POST    /addgenre                   controllers.BookController.postAddGenre
+GET     /editgenre/:id              controllers.BookController.getEditGenre(id : Integer)
+POST    /editgenre/:id              controllers.BookController.postEditGenre(id : Integer)
 
 GET     /addbook                    controllers.BookController.getAddBook
 POST    /addbook                    controllers.BookController.postAddBook
-
 GET     /editbook/:id               controllers.BookController.getEditBook(id : Integer)
 POST    /editbook/:id               controllers.BookController.postEditBook(id : Integer)
 
@@ -36,6 +44,7 @@ GET     /chartdemo                  controllers.ChartDemoController.getDemo
 
 GET     /bookstatuschart            controllers.BookController.getBookStatusReport
 GET     /booktypechart              controllers.BookController.getBookTypeReport
+GET     /genrechart                 controllers.BookController.getGenreReport
 
 GET     /testdb                     controllers.TestController.getTestDb
 POST    /testdb                     controllers.TestController.postTestDb

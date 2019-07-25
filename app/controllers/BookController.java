@@ -115,6 +115,7 @@ public class BookController extends Controller
         int bookStatusId = Integer.parseInt(form.get("bookStatusId"));
         int bookTypeId = Integer.parseInt(form.get("bookTypeId"));
         int genreId = Integer.parseInt(form.get("genreId"));
+        int authorId = Integer.parseInt(form.get("authorName"));
 
 
         Book book = bookRepository.get(bookId);
@@ -124,6 +125,7 @@ public class BookController extends Controller
         book.setBookStatusId(bookStatusId);
         book.setBookTypeId(bookTypeId);
         book.setGenreId(genreId);
+        book.setAuthorId(authorId);
 
         return redirect(routes.BookController.getList());
     }
@@ -228,5 +230,98 @@ public class BookController extends Controller
                 .collect(Collectors.joining("|"));
 
         return ok(views.html.BookTypeChart.render(bookTypeSummaries, dataPoints, dataLabels));
+    }
+
+    @Transactional
+    public Result getGenreReport()
+    {
+        List<GenreSummary> genreSummaries = genreRepository.getGenreSummary();
+
+        String dataPoints = genreSummaries.stream().map(genreSummary -> Long.toString(genreSummary.getTotalGenreCount()))
+                .collect(Collectors.joining("|"));
+
+        String dataLabels = genreSummaries.stream().map(genreSummary -> genreSummary.getGenreName())
+                .collect(Collectors.joining("|"));
+
+        return ok(views.html.GenreChart.render(genreSummaries, dataPoints, dataLabels));
+    }
+
+    @Transactional(readOnly = true)
+    public Result getEditAuthor(int authorId)
+    {
+        Author author = authorRepository.get(authorId);
+
+        return ok(views.html.EditAuthor.render(author));
+    }
+
+    @Transactional
+    public Result postEditAuthor(int authorId)
+    {
+        DynamicForm form = formFactory.form().bindFromRequest();
+        String firstName = form.get("firstName");
+        String lastName = form.get("lastName");
+
+        Author author = authorRepository.get(authorId);
+        author.setFirstName(firstName);
+        author.setLastName(lastName);
+
+        return redirect(routes.BookController.getAuthorList());
+    }
+
+    @Transactional(readOnly = true)
+    public Result getEditGenre(int genreId)
+    {
+        Genre genre = genreRepository.get(genreId);
+
+        return ok(views.html.EditGenre.render(genre));
+    }
+
+    @Transactional
+    public Result postEditGenre(int genreId)
+    {
+        DynamicForm form = formFactory.form().bindFromRequest();
+        String genreName = form.get("genreName");
+
+        Genre genre = genreRepository.get(genreId);
+        genre.setGenreName(genreName);
+        return redirect(routes.BookController.getGenreList());
+    }
+
+    public Result getAddType()
+    {
+        return ok(views.html.AddBookType.render());
+    }
+
+    @Transactional
+    public Result postAddType()
+    {
+        DynamicForm form = formFactory.form().bindFromRequest();
+
+        BookType bookType = new BookType();
+        String bookTypeName = form.get("bookTypeName");
+        bookType.setBookTypeName(bookTypeName);
+        bookTypeRepository.add(bookType);
+
+        return redirect(routes.BookController.getTypeList());
+    }
+
+    @Transactional(readOnly = true)
+    public Result getEditType(int bookTypeId)
+    {
+        BookType bookType = bookTypeRepository.get(bookTypeId);
+
+        return ok(views.html.EditBookType.render(bookType));
+    }
+
+    @Transactional
+    public Result postEditType(int bookTypeId)
+    {
+        DynamicForm form = formFactory.form().bindFromRequest();
+        String bookTypeName = form.get("bookTypeName");
+
+        BookType bookType = bookTypeRepository.get(bookTypeId);
+        bookType.setBookTypeName(bookTypeName);
+
+        return redirect(routes.BookController.getTypeList());
     }
 }

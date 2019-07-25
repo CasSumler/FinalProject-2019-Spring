@@ -1,0 +1,38 @@
+@(genreSummaries : List[GenreSummary], dataPoints : String, dataLabels : String)
+@doctype.render
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Genre Chart</title>
+        <link rel="stylesheet" href="/assets/lib/bootstrap/css/bootstrap.min.css">
+        <link rel="stylesheet" href="/assets/lib/chart.js/dist/Chart.min.css">
+        <script type="text/javascript" src="/assets/lib/chart.js/dist/Chart.min.js"></script>
+    </head>
+    <body>
+        <div class="container">
+            <h1 class="text-center">Genre Summary</h1>
+            <div class="row">
+                <div class="col-4">
+                    <table class="table table-striped">
+                        <tr>
+                            <th class="text-center">Genre</th>
+                            <th class="text-center">Total Book Count</th>
+                        </tr>
+                        @for(genreSummary <- genreSummaries){
+                        <tr>
+                            <td class="text-center">@genreSummary.getGenreName</td>
+                            <td class="text-center">@genreSummary.getTotalGenreCount</td>
+                        </tr>
+                        }
+                    </table>
+                </div>
+                <div class="col-1"></div>
+                <div class="col-7">
+                    <canvas id="totalGenreCount" width="150" height="150"
+                            data-points="@dataPoints" data-labels="@dataLabels"></canvas>
+                    <script type="text/javascript" src="/assets/javascripts/totalGenreCount.js"></script>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

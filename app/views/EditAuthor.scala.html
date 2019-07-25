@@ -1,0 +1,16 @@
+@(author : Author)
+@doctype.render
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Edit Author</title>
+    </head>
+    <body>
+        <form method="post">
+            @helper.CSRF.formField
+            <input type="text" name="firstName" id="firstName" value="@author.getFirstName">
+            <input type="text" name="lastName" id="lastName" value="@author.getLastName">
+            <input type="submit" value="Save">
+        </form>
+    </body>
+</html>

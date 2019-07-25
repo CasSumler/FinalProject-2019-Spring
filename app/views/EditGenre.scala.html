@@ -1,14 +1,14 @@
-<!DOCTYPE html>
+@(genre : Genre)
+@doctype.render
 <html lang="en">
     <head>
         <meta charset="UTF-8">
-        <title>Add Book Category</title>
+        <title>Edit Genre</title>
     </head>
     <body>
         <form method="post">
             @helper.CSRF.formField
-            <label for="bookTypeName">Book Category Name:</label>
-            <input type="text" name="bookTypeName" id="bookTypeName">
+            <input type="text" name="genreName" id="genreName" value="@genre.getGenreName">
             <input type="submit" value="Save">
         </form>
     </body>
