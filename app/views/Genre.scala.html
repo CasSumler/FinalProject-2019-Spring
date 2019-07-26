@@ -4,22 +4,28 @@
     <head>
         <meta charset="UTF-8">
         <title>Genres</title>
+        <link rel="stylesheet" href="/assets/lib/bootstrap/css/bootstrap.min.css">
     </head>
     <body>
-        <h1>List of Genres</h1>
-        <table>
-            <tr>
-                <th>Genre ID</th>
-                <th>Genre Name</th>
-            </tr>
-            @for(genre <- genres){
-            <tr>
-                <td>@genre.getGenreId</td>
-                <td>
-                    <a href="@routes.BookController.getEditGenre(genre.getGenreId)">@genre.getGenreName</a>
-                </td>
-            </tr>
-            }
-        </table>
+        <div class="container">
+            <h1>List of Genres</h1>
+            <table>
+                <tr>
+                    <th>Genre ID</th>
+                    <th>Genre Name</th>
+                </tr>
+                @for(genre <- genres){
+                <tr>
+                    <td>@genre.getGenreId</td>
+                    <td>
+                        <a href="@routes.BookController.getEditGenre(genre.getGenreId)">@genre.getGenreName</a>
+                    </td>
+                </tr>
+                }
+            </table>
+
+            <p><a href="@routes.BookController.getGenreReport">Chart</a></p>
+            <p><a href="@routes.BookController.getAddGenre">Add a Genre</a></p>
+        </div>
     </body>
 </html>

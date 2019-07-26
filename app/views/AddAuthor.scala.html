@@ -7,16 +7,30 @@
     </head>
     <body>
         <div class="container">
-            <h1>Add an Author</h1>
-        <form method="post">
-            @helper.CSRF.formField
-            <label for="firstName">First Name:</label>
-            <input type="text" name="firstName" id="firstName">
-
-            <label for="lastName">Last Name:</label>
-            <input type="text" name="lastName" id="lastName">
-            <input type="submit" value="Add">
-        </form>
+            <h1 class="text-center">Add an Author</h1>
+            <form method="post" class="form-group">
+                @helper.CSRF.formField
+                <div class="row">
+                    <div class="col-3"></div>
+                    <div class="col-3">
+                        <label for="firstName">First Name:</label>
+                        <input type="text" class="form-control" name="firstName" id="firstName">
+                    </div>
+                    <div class="col-3">
+                        <label for="lastName">Last Name:</label>
+                        <input type="text" class="form-control" name="lastName" id="lastName">
+                    </div>
+                    <div class="col-3"></div>
+                </div>
+                <br>
+                <div class="row">
+                    <div class="col-5"></div>
+                    <div class="col-2">
+                        <input type="submit" class="form-control btn btn-success" value="Add">
+                    </div>
+                    <div class="col-5"></div>
+                </div>
+            </form>
         </div>
     </body>
 </html>

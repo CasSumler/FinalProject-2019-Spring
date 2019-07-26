@@ -1,15 +1,30 @@
-<!DOCTYPE html>
+@(bookTypes : List[BookType])
+@doctype.render
 <html lang="en">
     <head>
         <meta charset="UTF-8">
         <title>Add Book Category</title>
+        <link rel="stylesheet" href="/assets/lib/bootstrap/css/bootstrap.min.css">
     </head>
     <body>
+        <div class="container">
         <form method="post">
             @helper.CSRF.formField
             <label for="bookTypeName">Book Category Name:</label>
             <input type="text" name="bookTypeName" id="bookTypeName">
             <input type="submit" value="Save">
         </form>
+
+        <table>
+            <tr>
+                <th>Category</th>
+            </tr>
+            @for(bookType <- bookTypes){
+            <tr>
+                <td>@bookType.getBookTypeName</td>
+            </tr>
+            }
+        </table>
+        </div>
     </body>
 </html>

@@ -1,15 +1,31 @@
-<!DOCTYPE html>
+@(genres : List[Genre])
+@doctype.render
 <html lang="en">
     <head>
         <meta charset="UTF-8">
         <title>Add a Genre</title>
+        <link rel="stylesheet" href="/assets/lib/bootstrap/css/bootstrap.min.css">
     </head>
     <body>
+        <div class="container">
+            <h1 class="text-center">Add a Genre</h1>
         <form method="post">
             @helper.CSRF.formField
             <label for="genreName">Genre Name:</label>
             <input type="text" name="genreName" id="genreName">
             <input type="submit" value="Add">
         </form>
+
+        <table>
+            <tr>
+                <th>Genre</th>
+            </tr>
+            @for(genre <- genres){
+            <tr>
+                <td>@genre.getGenreName</td>
+            </tr>
+            }
+        </table>
+        </div>
     </body>
 </html>

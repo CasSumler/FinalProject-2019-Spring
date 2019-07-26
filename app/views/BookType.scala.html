@@ -4,24 +4,30 @@
     <head>
         <meta charset="UTF-8">
         <title>List of Book Categories</title>
+        <link rel="stylesheet" href="/assets/lib/bootstrap/css/bootstrap.min.css">
     </head>
     <body>
-        <h1>List of Book Categories</h1>
-        <p>Total: @bookTypes.size</p>
+        <div class="container">
+            <h1 class="text-center">List of Book Categories</h1>
+            <p>Total: @bookTypes.size</p>
 
-        <table>
-            <tr>
-                <th>Category ID</th>
-                <th>Category Name</th>
-            </tr>
-            @for(bookType <- bookTypes){
-            <tr>
-                <td>@bookType.getBookTypeId</td>
-                <td>
-                    <a href="@routes.BookController.getEditType(bookType.getBookTypeId)">@bookType.getBookTypeName</a>
-                </td>
-            </tr>
-            }
-        </table>
+            <table class="table table-striped thead-dark table-hover">
+                <tr>
+                    <th>Category ID</th>
+                    <th>Category Name</th>
+                </tr>
+                @for(bookType <- bookTypes){
+                <tr>
+                    <td>@bookType.getBookTypeId</td>
+                    <td>
+                        <a href="@routes.BookController.getEditType(bookType.getBookTypeId)">@bookType.getBookTypeName</a>
+                    </td>
+                </tr>
+                }
+            </table>
+
+            <p><a href="@routes.BookController.getBookTypeReport">Chart</a></p>
+            <p><a href="@routes.BookController.getAddType">Add a Category</a></p>
+        </div>
     </body>
 </html>

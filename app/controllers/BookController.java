@@ -204,9 +204,12 @@ public class BookController extends Controller
         return ok(views.html.Genre.render(genres));
     }
 
+    @Transactional(readOnly = true)
     public Result getAddGenre()
     {
-        return ok(views.html.AddGenre.render());
+        List<Genre> genres = genreRepository.getList();
+
+        return ok(views.html.AddGenre.render(genres));
     }
 
     @Transactional
@@ -305,9 +308,12 @@ public class BookController extends Controller
         return redirect(routes.BookController.getGenreList());
     }
 
+    @Transactional(readOnly = true)
     public Result getAddType()
     {
-        return ok(views.html.AddBookType.render());
+        List<BookType> bookTypes = bookTypeRepository.getList();
+
+        return ok(views.html.AddBookType.render(bookTypes));
     }
 
     @Transactional
