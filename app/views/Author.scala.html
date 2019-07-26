@@ -8,7 +8,7 @@
     </head>
     <body>
         <div class="container">
-            <h1>List of Authors</h1>
+            <h1>List of Authors (with books in database)</h1>
             <form>
                 <div class="form-group">
                     <label for="searchName">Search: </label>
@@ -19,6 +19,7 @@
 
             <p>Total: @authorSummaries.size</p>
             <p><a href="@routes.BookController.getAddAuthor">Add an Author</a></p>
+            <p><a href="@routes.BookController.getAuthorList">All Authors</a></p>
 
             <table class="table table-striped thead-dark table-hover">
                 <tr>
@@ -28,8 +29,12 @@
                 </tr>
                 @for(authorSummary <- authorSummaries){
                 <tr>
-                    <td>@authorSummary.getLastName</td>
-                    <td>@authorSummary.getFirstName</td>
+                    <td>
+                        <a href="@routes.BookController.getEditAuthor(authorSummary.getAuthorId)">@authorSummary.getLastName</a>
+                    </td>
+                    <td>
+                        <a href="@routes.BookController.getEditAuthor(authorSummary.getAuthorId)">@authorSummary.getFirstName</a>
+                    </td>
                     <td>@authorSummary.getTotalBookCount</td>
                 </tr>
                 }

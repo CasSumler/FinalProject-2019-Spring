@@ -15,13 +15,13 @@
                 <div class="col-4">
                     <table class="table table-striped">
                         <tr>
-                            <th class="text-center">Genre</th>
+                            <th class="text-left">Genre</th>
                             <th class="text-center">Total Book Count</th>
                         </tr>
                         @for(genreSummary <- genreSummaries){
                         <tr>
-                            <td class="text-center">@genreSummary.getGenreName</td>
-                            <td class="text-center">@genreSummary.getTotalGenreCount</td>
+                            <td class="text-left">@genreSummary.getGenreName</td>
+                            <td class="text-right">@genreSummary.getTotalGenreCount</td>
                         </tr>
                         }
                     </table>

@@ -57,6 +57,15 @@ public class BookController extends Controller
         return ok(views.html.DisplayBook.render(bookInfo));
     }
 
+    @Transactional
+    public Result postDeleteBook(int bookId)
+    {
+        Book book = bookRepository.get(bookId);
+        bookRepository.deleteBook(book);
+
+        return redirect(routes.BookController.getList());
+    }
+
     @Transactional(readOnly = true)
     public Result getAddBook()
     {
@@ -117,7 +126,6 @@ public class BookController extends Controller
         int genreId = Integer.parseInt(form.get("genreId"));
         int authorId = Integer.parseInt(form.get("authorName"));
 
-
         Book book = bookRepository.get(bookId);
 
         book.setBookName(bookName);
@@ -132,6 +140,16 @@ public class BookController extends Controller
 
     @Transactional(readOnly = true)
     public Result getAuthorList()
+    {
+        DynamicForm form = formFactory.form().bindFromRequest();
+        String searchName = form.get("searchName");
+
+        List<Author> authors = authorRepository.getSearchList(searchName);
+        return ok(views.html.AllAuthors.render(authors));
+    }
+
+    @Transactional(readOnly = true)
+    public Result getAuthorSummaryList()
     {
         DynamicForm form = formFactory.form().bindFromRequest();
         String searchName = form.get("searchName");

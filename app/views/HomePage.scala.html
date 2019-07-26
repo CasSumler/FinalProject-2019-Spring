@@ -13,19 +13,21 @@
                 <div class="col-4"></div>
                 <a href="@routes.BookController.getList" class="btn btn-success" role="button">Library</a>
                 <div class="col-1"></div>
-                <a href="@routes.BookController.getAuthorList" class="btn btn-secondary" role="button">Authors</a>
+                <a href="@routes.BookController.getAuthorSummaryList" class="btn btn-secondary" role="button">Authors</a>
                 <div class="col-1"></div>
                 <a href="@routes.BookController.getAddBook" class="btn btn-primary" role="button">Add Book</a>
             </div>
+            <br>
+            <div class="row">
+                <div class="col-3"></div>
+                <a href="@routes.BookController.getTypeList" class="btn btn-info" role="button">Categories</a>
+                <div class="col-1"></div>
+                <a href="@routes.BookController.getGenreList" class="btn btn-warning" role="button">Genres</a>
+                <div class="col-1"></div>
+                <a href="@routes.BookController.getStatusList" class="btn btn-danger" role="button">Status</a>
+            </div>
 
 
-
-        <ul>This page will display various buttons:
-            <li>Library button --> takes to list of all books</li>
-            <li>Author button --> takes to list of authors</li>
-            <li>Add book button --> takes to add book page</li>
-            <li>some button that will take to a chart page</li>
-        </ul>
         </div>
     </body>
 </html>

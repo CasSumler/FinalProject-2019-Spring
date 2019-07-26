@@ -21,7 +21,11 @@
                     <a href="@routes.BookController.getEditBook(bookInfo.getBookId)"
                        class="form-control btn btn-success">Edit
                         Book</a>
-                    <input type="submit" class="form-control btn btn-danger" value="Delete">
+                    <form method="post" action="@routes.BookController.postDeleteBook(bookInfo.getBookId)">
+                        @helper.CSRF.formField
+                        <input type="submit" class="form-control btn btn-danger" value="Delete">
+                    </form>
+
                 </div>
                 <div class="col-3">
                     <img src="http://covers.openlibrary.org/b/isbn/@bookInfo.getISBN-L.jpg" alt="book cover image">

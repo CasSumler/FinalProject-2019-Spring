@@ -78,4 +78,9 @@ public class BookRepository
     {
         jpaApi.em().persist(book);
     }
+
+    public void deleteBook(Book book)
+    {
+        jpaApi.em().remove(book);
+    }
 }

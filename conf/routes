@@ -14,8 +14,11 @@ GET     /genre                      controllers.GenreController.getList
 GET     /home                       controllers.BookController.getHomePage
 GET     /library                    controllers.BookController.getList
 GET     /book/:id                   controllers.BookController.getBookInfo(id : Integer)
+POST    /book/:id                   controllers.BookController.postDeleteBook(id : Integer)
 
-GET     /authors                    controllers.BookController.getAuthorList
+GET     /allauthors                 controllers.BookController.getAuthorList
+
+GET     /authors                    controllers.BookController.getAuthorSummaryList
 GET     /addauthor                  controllers.BookController.getAddAuthor
 POST    /addauthor                  controllers.BookController.postAddAuthor
 GET     /editauthor/:id             controllers.BookController.getEditAuthor(id : Integer)

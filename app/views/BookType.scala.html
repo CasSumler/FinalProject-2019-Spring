@@ -17,7 +17,9 @@
             @for(bookType <- bookTypes){
             <tr>
                 <td>@bookType.getBookTypeId</td>
-                <td>@bookType.getBookTypeName</td>
+                <td>
+                    <a href="@routes.BookController.getEditType(bookType.getBookTypeId)">@bookType.getBookTypeName</a>
+                </td>
             </tr>
             }
         </table>

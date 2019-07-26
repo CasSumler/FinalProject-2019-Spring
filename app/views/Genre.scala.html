@@ -15,7 +15,9 @@
             @for(genre <- genres){
             <tr>
                 <td>@genre.getGenreId</td>
-                <td>@genre.getGenreName</td>
+                <td>
+                    <a href="@routes.BookController.getEditGenre(genre.getGenreId)">@genre.getGenreName</a>
+                </td>
             </tr>
             }
         </table>
