@@ -8,33 +8,48 @@
     </head>
     <body>
         <div class="container">
-        <h1>List of All Authors</h1>
-            <p>Total: @authors.size</p>
-        <form>
-            <div class="form-group">
-                <label for="searchName">Search: </label>
-                <input type="text" name="searchName" id="searchName">
-                <input type="submit" value="Search">
+            <h1 class="text-center">List of All Authors</h1>
+            <br>
+            <div class="row">
+                <div class="col-3"></div>
+                <div class="col-6">
+                    <form class="form-group">
+                        <div class="row">
+                            <div class="col-10">
+                                <label for="searchName">Search: </label>
+                                <input type="text" name="searchName" id="searchName">
+                                <input type="submit" class="btn btn-primary" value="Search">
+                            </div>
+                            <div class="col-2">
+                                <p>Total: @authors.size</p>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="col-3"></div>
             </div>
-        </form>
-        <table>
-            <tr>
-                <th>Author ID</th>
-                <th>First Name</th>
-                <th>Last Name</th>
-            </tr>
-            @for(author <- authors){
-            <tr>
-                <td>@author.getAuthorId</td>
-                <td>
-                    <a href="@routes.BookController.getEditAuthor(author.getAuthorId)">@author.getFirstName</a>
-                </td>
-                <td>
-                    <a href="@routes.BookController.getEditAuthor(author.getAuthorId)">@author.getLastName</a>
-                </td>
-            </tr>
-            }
-        </table>
+            <div class="row">
+                <div class="col-2"></div>
+                <div class="col-8">
+                    <table class="table table-striped thead-dark table-hover">
+                        <tr>
+                            <th>First Name</th>
+                            <th>Last Name</th>
+                        </tr>
+                        @for(author <- authors){
+                        <tr>
+                            <td>
+                                <a href="@routes.BookController.getEditAuthor(author.getAuthorId)">@author.getFirstName</a>
+                            </td>
+                            <td>
+                                <a href="@routes.BookController.getEditAuthor(author.getAuthorId)">@author.getLastName</a>
+                            </td>
+                        </tr>
+                        }
+                    </table>
+                </div>
+                <div class="col-2"></div>
+            </div>
         </div>
     </body>
 </html>

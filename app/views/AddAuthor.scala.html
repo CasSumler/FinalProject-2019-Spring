@@ -8,34 +8,12 @@
     </head>
     <body>
         <div class="container">
-            <h1 class="text-center">Add an Author</h1>
-            <form method="post" class="form-group">
-                @helper.CSRF.formField
-                <div class="row">
-                    <div class="col-3"></div>
-                    <div class="col-3">
-                        <label for="firstName">First Name:</label>
-                        <input type="text" class="form-control" name="firstName" id="firstName">
-                    </div>
-                    <div class="col-3">
-                        <label for="lastName">Last Name:</label>
-                        <input type="text" class="form-control" name="lastName" id="lastName">
-                    </div>
-                    <div class="col-3"></div>
-                </div>
-                <br>
-                <div class="row">
-                    <div class="col-5"></div>
-                    <div class="col-2">
-                        <input type="submit" class="form-control btn btn-success" value="Add">
-                    </div>
-                    <div class="col-5"></div>
-                </div>
-                <div class="row">
+            <h1 class="text-center">Add New Author</h1>
+            <div class="row">
+                <div class="col-2"></div>
+                <div class="col-3">
+                    <h3>Existing Authors</h3>
                     <table>
-                        <tr>
-                            <th>Author</th>
-                        </tr>
                         @for(author <- authors){
                         <tr>
                             <td>@author.getFirstName @author.getLastName</td>
@@ -43,7 +21,32 @@
                         }
                     </table>
                 </div>
-            </form>
+                <div class="col-6">
+                    <form method="post" class="form-group">
+                        @helper.CSRF.formField
+                        <div class="row">
+                            <div class="col-6">
+                                <label for="firstName">First Name:</label>
+                                <input type="text" class="form-control" name="firstName" id="firstName">
+                            </div>
+                            <div class="col-6">
+                                <label for="lastName">Last Name:</label>
+                                <input type="text" class="form-control" name="lastName" id="lastName">
+                            </div>
+                            <div class="col-3"></div>
+                        </div>
+                        <br>
+                        <div class="row">
+                            <div class="col-4"></div>
+                            <div class="col-4">
+                                <input type="submit" class="form-control btn btn-success" value="Add">
+                            </div>
+                            <div class="col-4"></div>
+                        </div>
+                    </form>
+                </div>
+                <div class="1"></div>
+            </div>
         </div>
     </body>
 </html>
