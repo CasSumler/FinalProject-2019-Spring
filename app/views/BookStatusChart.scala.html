@@ -20,7 +20,9 @@
                         </tr>
                         @for(bookStatusSummary <- bookStatusSummaries){
                         <tr>
-                            <td>@bookStatusSummary.getBookStatusName</td>
+                            <td>
+                                <a href="@routes.BookController.getStatusesList(bookStatusSummary.getBookStatusId)">@bookStatusSummary.getBookStatusName</a>
+                            </td>
                             <td>@bookStatusSummary.getTotalStatusCount</td>
                         </tr>
                         }

@@ -1,4 +1,5 @@
-<!DOCTYPE html>
+@(authors : List[Author])
+@doctype.render
 <html lang="en">
     <head>
         <meta charset="UTF-8">
@@ -29,6 +30,18 @@
                         <input type="submit" class="form-control btn btn-success" value="Add">
                     </div>
                     <div class="col-5"></div>
+                </div>
+                <div class="row">
+                    <table>
+                        <tr>
+                            <th>Author</th>
+                        </tr>
+                        @for(author <- authors){
+                        <tr>
+                            <td>@author.getFirstName @author.getLastName</td>
+                        </tr>
+                        }
+                    </table>
                 </div>
             </form>
         </div>

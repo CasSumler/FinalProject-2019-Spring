@@ -159,9 +159,12 @@ public class BookController extends Controller
         return ok(views.html.Author.render(authorSummaries));
     }
 
+    @Transactional(readOnly = true)
     public Result getAddAuthor()
     {
-        return ok(views.html.AddAuthor.render());
+        List<Author> authors = authorRepository.getList();
+
+        return ok(views.html.AddAuthor.render(authors));
     }
 
     @Transactional
@@ -347,5 +350,14 @@ public class BookController extends Controller
         bookType.setBookTypeName(bookTypeName);
 
         return redirect(routes.BookController.getTypeList());
+    }
+
+    @Transactional(readOnly = true)
+    public Result getStatusesList(int bookStatusId)
+    {
+        List<BookStatusInfo> bookStatusInfos = bookStatusRepository.getStatusList(bookStatusId);
+        BookStatus bookStatus = bookStatusRepository.get(bookStatusId);
+
+        return ok(views.html.StatusList.render(bookStatusInfos, bookStatus));
     }
 }
