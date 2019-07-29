@@ -7,10 +7,28 @@
         <link rel="stylesheet" href="/assets/lib/bootstrap/css/bootstrap.min.css">
     </head>
     <body>
-        <form method="post">
-            @helper.CSRF.formField
-            <input type="text" name="genreName" id="genreName" value="@genre.getGenreName">
-            <input type="submit" value="Save">
-        </form>
+        <div class="container">
+            <h1 class="text-center">Edit Genre</h1>
+            <form method="post" class="form-group">
+                @helper.CSRF.formField
+                <div class="row">
+                    <div class="col-4"></div>
+                    <div class="col-4">
+                        <label for="genreName">Genre: </label>
+                        <input type="text" class="form-control" name="genreName" id="genreName"
+                               value="@genre.getGenreName">
+                    </div>
+                    <div class="col-4"></div>
+                </div>
+                <br>
+                <div class="row">
+                    <div class="col-5"></div>
+                    <div class="col-2">
+                        <input type="submit" class="form-control btn btn-primary" value="Save">
+                    </div>
+                    <div class="col-5"></div>
+                </div>
+            </form>
+        </div>
     </body>
 </html>

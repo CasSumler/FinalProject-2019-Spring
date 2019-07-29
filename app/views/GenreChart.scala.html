@@ -10,7 +10,7 @@
     </head>
     <body>
         <div class="container">
-            <h1 class="text-center">Genre Summary</h1>
+            <h1 class="text-left">Genre Summary</h1>
             <div class="row">
                 <div class="col-4">
                     <table class="table table-striped">
@@ -25,6 +25,8 @@
                         </tr>
                         }
                     </table>
+                    <p><a href="@routes.BookController.getAddGenre">Add New Genre</a></p>
+                    <p><a href="@routes.BookController.getGenreList">Genre List</a></p>
                 </div>
                 <div class="col-1"></div>
                 <div class="col-7">
@@ -33,9 +35,6 @@
                     <script type="text/javascript" src="/assets/javascripts/totalGenreCount.js"></script>
                 </div>
             </div>
-
-            <a href="@routes.BookController.getAddGenre">Add a Genre</a>
-
         </div>
     </body>
 </html>

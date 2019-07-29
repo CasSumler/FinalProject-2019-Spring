@@ -10,7 +10,7 @@
     </head>
     <body>
         <div class="container">
-            <h1>Category Summary</h1>
+            <h1 class="text-left">Category Summary</h1>
             <div class="row">
                 <div class="col-4">
                     <table class="table table-striped">
@@ -25,6 +25,8 @@
                         </tr>
                         }
                     </table>
+                    <p><a href="@routes.BookController.getAddType">Add New Category</a></p>
+                    <p><a href="@routes.BookController.getTypeList">All Categories List</a></p>
                 </div>
                 <div class="col-1"></div>
                 <div class="col-7">
@@ -33,9 +35,6 @@
                     <script type="text/javascript" src="/assets/javascripts/totalTypeCount.js"></script>
                 </div>
             </div>
-
-            <a href="@routes.BookController.getAddType">Add a Category</a>
-
         </div>
     </body>
 </html>

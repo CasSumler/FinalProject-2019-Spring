@@ -3,7 +3,7 @@
 <html lang="en">
     <head>
         <meta charset="UTF-8">
-        <title>Add Genre</title>
+        <title>Add New Genre</title>
         <link rel="stylesheet" href="/assets/lib/bootstrap/css/bootstrap.min.css">
     </head>
     <body>
@@ -13,13 +13,11 @@
                 <div class="col-3"></div>
                 <div class="col-3">
                     <h3>Existing Genres</h3>
-                    <table>
+                    <ol>
                         @for(genre <- genres){
-                        <tr>
-                            <td>@genre.getGenreName</td>
-                        </tr>
+                        <li>@genre.getGenreName</li>
                         }
-                    </table>
+                    </ol>
                 </div>
                 <div class="col-4">
                     <form method="post">

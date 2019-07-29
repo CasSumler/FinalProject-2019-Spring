@@ -3,23 +3,21 @@
 <html lang="en">
     <head>
         <meta charset="UTF-8">
-        <title>Add Book Category</title>
+        <title>Add New Category</title>
         <link rel="stylesheet" href="/assets/lib/bootstrap/css/bootstrap.min.css">
     </head>
     <body>
         <div class="container">
-            <h1 class="text-center">Add New Book Category</h1>
+            <h1 class="text-center">Add New Category</h1>
             <div class="row">
                 <div class="col-2"></div>
                 <div class="col-4">
                     <h2>Existing Categories</h2>
-                    <table>
+                    <ol>
                         @for(bookType <- bookTypes){
-                        <tr>
-                            <td>@bookType.getBookTypeName</td>
-                        </tr>
+                        <li>@bookType.getBookTypeName</li>
                         }
-                    </table>
+                    </ol>
                 </div>
                 <div class="col-4">
                     <form method="post" class="form-group">

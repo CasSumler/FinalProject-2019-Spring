@@ -5,7 +5,7 @@ var dataPoints = document.getElementById('totalStatusCount').getAttribute('data-
 var dataLabels = document.getElementById('totalStatusCount').getAttribute('data-labels').split("|");
 
 var myChart = new Chart(ctx, {
-    type: 'bar',
+    type: 'pie',
     data: {
         labels: dataLabels,
         datasets: [{
@@ -38,13 +38,6 @@ var myChart = new Chart(ctx, {
                 display: true,
                 text: 'Total Book Count',
                 fontSize: 16
-            },
-        scales: {
-            yAxes: [{
-                ticks: {
-                    beginAtZero: true
-                }
-            }]
-        }
+            }
     }
 });

@@ -13,13 +13,11 @@
                 <div class="col-2"></div>
                 <div class="col-3">
                     <h3>Existing Authors</h3>
-                    <table>
-                        @for(author <- authors){
-                        <tr>
-                            <td>@author.getFirstName @author.getLastName</td>
-                        </tr>
+                    <ol>
+                        @for(author <-authors){
+                        <li>@author.getFirstName @author.getLastName</li>
                         }
-                    </table>
+                    </ol>
                 </div>
                 <div class="col-6">
                     <form method="post" class="form-group">

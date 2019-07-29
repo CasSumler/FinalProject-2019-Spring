@@ -7,27 +7,76 @@
     </head>
     <body>
         <div class="container">
-        <h1 class="text-center">Home Page</h1>
+        <h1 class="text-center">Welcome to Your Digital Library</h1>
             <br>
             <div class="row">
-                <div class="col-4"></div>
-                <a href="@routes.BookController.getList" class="btn btn-success" role="button">Library</a>
-                <div class="col-1"></div>
-                <a href="@routes.BookController.getAuthorSummaryList" class="btn btn-secondary" role="button">Authors</a>
-                <div class="col-1"></div>
-                <a href="@routes.BookController.getAddBook" class="btn btn-primary" role="button">Add Book</a>
+                <div class="col-2"></div>
+                <div class="col-3">
+                    <a href="@routes.BookController.getList">
+                        <img src="/assets/images/librarybutton5.jpg" alt="Library" height="150">
+                    </a>
+                </div>
+                <div class="col-2"></div>
+                <div class="col-3">
+                    <a href="@routes.BookController.getAddBook">
+                        <img src="/assets/images/addbookbutton.png" alt="Add Book" height="150">
+                    </a>
+                </div>
+                <div class="col-2"></div>
+            </div>
+            <div class="row">
+                <div class="col-2"></div>
+                <div class="col-3">Library</div>
+                <div class="col-2"></div>
+                <div class="col-3">Add Book</div>
+                <div class="col-2"></div>
             </div>
             <br>
             <div class="row">
-                <div class="col-3"></div>
-                <a href="@routes.BookController.getBookTypeReport" class="btn btn-info" role="button">Categories</a>
-                <div class="col-1"></div>
-                <a href="@routes.BookController.getGenreReport" class="btn btn-warning" role="button">Genres</a>
-                <div class="col-1"></div>
-                <a href="@routes.BookController.getBookStatusReport" class="btn btn-danger" role="button">Status</a>
+                <div class="col-2"></div>
+                <div class="col-3">
+                    <a href="@routes.BookController.getAuthorSummaryList">
+                        <img src="/assets/images/authorbutton.jpg" alt="Profile" height="150">
+                    </a>
+                </div>
+                <div class="col-2"></div>
+                <div class="col-3">
+                    <a href="@routes.BookController.getBookTypeReport">
+                        <img src="/assets/images/categorybutton.png" alt="Category" height="150">
+                    </a>
+                </div>
+                <div class="col-2"></div>
             </div>
-
-
+            <div class="row">
+                <div class="col-2"></div>
+                <div class="col-3">Authors</div>
+                <div class="col-2"></div>
+                <div class="col-3">Categories</div>
+                <div class="col-2"></div>
+            </div>
+            <br>
+            <div class="row">
+                <div class="col-2"></div>
+                <div class="col-3">
+                    <a href="@routes.BookController.getGenreReport">
+                        <img src="/assets/images/genrebutton3.png" alt="Genres" height="150">
+                    </a>
+                </div>
+                <div class="col-2"></div>
+                <div class="col-3">
+                    <a href="@routes.BookController.getBookStatusReport">
+                        <img src="/assets/images/statusbutton.png" alt="Status" height="150">
+                    </a>
+                </div>
+                <div class="col-2"></div>
+            </div>
+            <div class="row">
+                <div class="col-2"></div>
+                <div class="col-3">Genres</div>
+                <div class="col-2"></div>
+                <div class="col-3">Status</div>
+                <div class="col-2"></div>
+            </div>
         </div>
     </body>
 </html>
