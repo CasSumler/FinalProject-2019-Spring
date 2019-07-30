@@ -8,45 +8,62 @@
     </head>
     <body>
         <div class="container">
-            <h1 class="text-center">List of Authors</h1>
+            <h1 class="text-center">Authors</h1>
+
             <div class="row">
-                <div class="col-10">
-                    <form class="form-horizontal">
-                        <div class="form-group form-group-lg">
-                            <label class="col-sm-2 control-label" for="searchName">Search:</label>
-                            <div class="col-sm-10">
-                                <input class="form-control" type="text" name="searchName" id="searchName">
-                            </div>
+                <div class="col-1"></div>
+                <div class="col-5">
+                    <form>
+                        <div class="form-group">
+                            <input class="form-control" type="text" name="searchName" id="searchName" maxlength="25"
+                                   placeholder="Enter Author Name...">
                         </div>
                     </form>
                 </div>
                 <div class="col-2">
-                   <input type="submit" class="form-control btn btn-primary" value="Search">
+                    <input type="submit" class="form-control btn btn-primary" value="Search">
+                </div>
+                <div class="col-1"></div>
+                <div class="col-2">
+                    <a href="@routes.BookController.getAddAuthor" class="btn btn-danger" role="button">Add Author</a>
                 </div>
             </div>
 
-            <p>Total: @authorSummaries.size</p>
-            <p><a href="@routes.BookController.getAddAuthor">Add an Author</a></p>
-            <p><a href="@routes.BookController.getAuthorList">All Authors</a></p>
-
-            <table class="table table-striped thead-dark table-hover">
-                <tr>
-                    <th>First Name</th>
-                    <th>Last Name</th>
-                    <th>Total Books</th>
-                </tr>
-                @for(authorSummary <- authorSummaries){
-                <tr>
-                    <td>
-                        <a href="@routes.BookController.getEditAuthor(authorSummary.getAuthorId)">@authorSummary.getLastName</a>
-                    </td>
-                    <td>
-                        <a href="@routes.BookController.getEditAuthor(authorSummary.getAuthorId)">@authorSummary.getFirstName</a>
-                    </td>
-                    <td>@authorSummary.getTotalBookCount</td>
-                </tr>
-                }
-            </table>
+            <div class="row">
+                <div class="col-2"></div>
+                <div class="col-8">
+                    <table class="table table-striped thead-dark table-hover">
+                        <tr>
+                            <th class="text-center">First Name</th>
+                            <th class="text-center">Last Name</th>
+                            <th class="text-center">Total Books</th>
+                        </tr>
+                        @for(authorSummary <- authorSummaries){
+                        <tr>
+                            <td class="text-center">
+                                <a href="@routes.BookController.getEditAuthor(authorSummary.getAuthorId)">@authorSummary.getLastName</a>
+                            </td>
+                            <td class="text-center">
+                                <a href="@routes.BookController.getEditAuthor(authorSummary.getAuthorId)">@authorSummary.getFirstName</a>
+                            </td>
+                            <td class="text-center">@authorSummary.getTotalBookCount</td>
+                        </tr>
+                        }
+                    </table>
+                </div>
+                <div class="col-2"></div>
+            </div>
+            <div class="row">
+                <div class="col-2"></div>
+                <div class="col-2">
+                    <p>Total: @authorSummaries.size</p>
+                </div>
+                <div class="col-5"></div>
+                <div class="col-2">
+                    <p><a href="@routes.BookController.getAuthorList">All Authors</a></p>
+                </div>
+                <div class="col-1"></div>
+            </div>
         </div>
     </body>
 </html>

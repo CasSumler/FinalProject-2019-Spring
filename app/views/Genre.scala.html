@@ -8,28 +8,23 @@
     </head>
     <body>
         <div class="container">
-            <h1 class="text-center">List of Genres</h1>
+            <h1 class="text-center">All Genres</h1>
             <div class="row">
                 <div class="col-4"></div>
-                <div class="col-4">
-                    <table class="table">
-                        <tr>
-                            <th>Genre Name</th>
-                        </tr>
+                <div class="col-3">
+                    <ul>
                         @for(genre <- genres){
-                        <tr>
-                            <td>
-                                <a href="@routes.BookController.getEditGenre(genre.getGenreId)">@genre.getGenreName</a>
-                            </td>
-                        </tr>
+                        <li>
+                            <a href="@routes.BookController.getEditGenre(genre.getGenreId)">@genre.getGenreName</a>
+                        </li>
                         }
-                    </table>
+                    </ul>
                 </div>
-                <div class="col-4"></div>
+                <div class="col-5">
+                    <p><a href="@routes.BookController.getHomePage">Home</a></p>
+                    <p><a href="@routes.BookController.getAddGenre">Add a Genre</a></p>
+                </div>
             </div>
-
-            <p><a href="@routes.BookController.getGenreReport">Chart</a></p>
-            <p><a href="@routes.BookController.getAddGenre">Add a Genre</a></p>
         </div>
     </body>
 </html>

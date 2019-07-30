@@ -8,40 +8,42 @@
     </head>
     <body>
         <div class="container">
-            <h1 class="text-center">List of All Authors</h1>
-            <br>
+            <h1 class="text-center">All Authors</h1>
+
             <div class="row">
-                <div class="col-3"></div>
-                <div class="col-6">
-                    <form class="form-group">
-                        <div class="row">
-                            <div class="col-10">
-                                <label for="searchName">Search: </label>
-                                <input type="text" name="searchName" id="searchName">
-                                <input type="submit" class="btn btn-primary" value="Search">
-                            </div>
-                            <div class="col-2">
-                                <p>Total: @authors.size</p>
-                            </div>
+                <div class="col-1"></div>
+                <div class="col-5">
+                    <form>
+                        <div class="form-group">
+                            <input type="text" name="searchName" id="searchName" maxlength="25" class="form-control"
+                                   placeholder="Enter Author Name...">
                         </div>
                     </form>
                 </div>
-                <div class="col-3"></div>
+                <div class="col-2">
+                    <input type="submit" class="form-control btn btn-primary" value="Search">
+                </div>
+                <div class="col-1"></div>
+                <div class="col-2">
+                    <a href="@routes.BookController.getAddAuthor" class="btn btn-danger" role="button">Add Author</a>
+                </div>
+                <div class="col-1"></div>
             </div>
+
             <div class="row">
                 <div class="col-2"></div>
                 <div class="col-8">
                     <table class="table table-striped thead-dark table-hover">
                         <tr>
-                            <th>First Name</th>
-                            <th>Last Name</th>
+                            <th class="text-center">First Name</th>
+                            <th class="text-center">Last Name</th>
                         </tr>
                         @for(author <- authors){
                         <tr>
-                            <td>
+                            <td class="text-center">
                                 <a href="@routes.BookController.getEditAuthor(author.getAuthorId)">@author.getFirstName</a>
                             </td>
-                            <td>
+                            <td class="text-center">
                                 <a href="@routes.BookController.getEditAuthor(author.getAuthorId)">@author.getLastName</a>
                             </td>
                         </tr>
@@ -49,6 +51,14 @@
                     </table>
                 </div>
                 <div class="col-2"></div>
+            </div>
+
+            <div class="row">
+                <div class="col-2"></div>
+                <div class="col-2">
+                    <p>Total: @authors.size</p>
+                </div>
+                <div class="col-8"></div>
             </div>
         </div>
     </body>

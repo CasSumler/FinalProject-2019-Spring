@@ -3,30 +3,30 @@
 <html lang="en">
     <head>
         <meta charset="UTF-8">
-        <title>List of Book Categories</title>
+        <title>All Categories</title>
         <link rel="stylesheet" href="/assets/lib/bootstrap/css/bootstrap.min.css">
     </head>
     <body>
         <div class="container">
-            <h1 class="text-center">List of Book Categories</h1>
+            <h1 class="text-center">All Categories</h1>
             <br>
+
             <div class="row">
                 <div class="col-4"></div>
-                <div class="col-4">
-                    <table class="table table-striped thead-dark table-hover table-bordered">
-                        <tr>
-                            <th class="text-center">Category Name</th>
-                        </tr>
+                <div class="col-3">
+                    <ul>
                         @for(bookType <- bookTypes){
-                        <tr>
-                            <td class="text-center">
-                                <a href="@routes.BookController.getEditType(bookType.getBookTypeId)">@bookType.getBookTypeName</a>
-                            </td>
-                        </tr>
+                        <li>
+                            <a href="@routes.BookController.getEditType(bookType.getBookTypeId)">@bookType.getBookTypeName</a>
+                        </li>
                         }
-                    </table>
+                    </ul>
                 </div>
-                <div class="col-4"></div>
+                <div class="col-5">
+                    <p><a href="@routes.BookController.getHomePage">Home</a></p>
+                    <p><a href="@routes.BookController.getAddType">Add Category</a></p>
+                    <p><a href="@routes.BookController.getBookTypeReport">Category Summary</a></p>
+                </div>
             </div>
 
             <div class="row">
@@ -35,18 +35,6 @@
                     <p>Total: @bookTypes.size</p>
                 </div>
                 <div class="col-7"></div>
-            </div>
-
-            <div class="row">
-                <div class="col-3"></div>
-                <div class="col-3">
-                    <a href="@routes.BookController.getBookTypeReport">Book Category Summary</a>
-                </div>
-                <div class="col-1"></div>
-                <div class="col-2">
-                    <a href="@routes.BookController.getAddType">Add a Category</a>
-                </div>
-                <div class="col-3"></div>
             </div>
         </div>
     </body>
