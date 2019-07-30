@@ -6,31 +6,61 @@
         <title>Book Information</title>
         <link rel="stylesheet" href="/assets/lib/bootstrap/css/bootstrap.min.css">
     </head>
-    <body>
+    <body class="bg-light">
         <div class="container">
             <h1 class="text-center">@bookInfo.getBookName</h1>
             <br>
             <div class="row">
                 <div class="col-3"></div>
                 <div class="col-3">
-                    <p>Author: @bookInfo.getLastName @bookInfo.getFirstName</p>
-                    <p>ISBN: @bookInfo.getISBN</p>
-                    <p>Status: @bookInfo.getBookStatusName</p>
-                    <p>Category: @bookInfo.getBookTypeName</p>
-                    <p>Genre: @bookInfo.getGenreName</p>
-                    <a href="@routes.BookController.getEditBook(bookInfo.getBookId)"
-                       class="form-control btn btn-success">Edit
-                        Book</a>
-                    <form method="post" action="@routes.BookController.postDeleteBook(bookInfo.getBookId)">
-                        @helper.CSRF.formField
-                        <input type="submit" class="form-control btn btn-danger" value="Delete">
-                    </form>
-
+                    <div class="row">
+                        <div class="col-12">
+                            <p>Author: @bookInfo.getLastName @bookInfo.getFirstName</p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-12">
+                            <p>ISBN: @bookInfo.getISBN</p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-12">
+                            <p>Status: @bookInfo.getBookStatusName</p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-12">
+                            <p>Category: @bookInfo.getBookTypeName</p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-12">
+                            <p>Genre: @bookInfo.getGenreName</p>
+                        </div>
+                    </div>
                 </div>
                 <div class="col-3">
                     <img src="http://covers.openlibrary.org/b/isbn/@bookInfo.getISBN-L.jpg" alt="book cover image">
                 </div>
                 <div class="col-3"></div>
+            </div>
+
+            <br>
+
+            <div class="row">
+                <div class="col-4"></div>
+                <div class="col-2">
+                    <a href="@routes.BookController.getEditBook(bookInfo.getBookId)"
+                       class="form-control btn btn-success">Edit
+                        Book</a>
+                </div>
+                <div class="col-2">
+                    <form method="post" action="@routes.BookController.postDeleteBook(bookInfo.getBookId)">
+                        @helper.CSRF.formField
+                        <input type="submit" class="form-control btn btn-danger" value="Delete">
+                    </form>
+                </div>
+                <div class="col-4"></div>
             </div>
         </div>
     </body>

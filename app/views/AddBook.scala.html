@@ -5,25 +5,31 @@
         <meta charset="UTF-8">
         <title>Add Book</title>
         <link rel="stylesheet" href="/assets/lib/bootstrap/css/bootstrap.min.css">
+        <link rel="stylesheet" href="/assets/stylesheets/jumbotron.css">
     </head>
-    <body>
-        <h1 class="text-center">Add Book</h1>
+    <body class="bg-light">
+        <div class="jumbotron">
+            <h1 class="text-center"><font color="white">Add New Book</font></h1>
+        </div>
 
+        <div class="container">
         <form method="post">
             @helper.CSRF.formField
             <div class="row">
-                <div class="col-3"></div>
-                <div class="col-6">
+                <div class="col-2"></div>
+                <div class="col-8">
                     <div class="form-group">
                         <label for="bookName">Book Title:</label>
-                        <input type="text" class="form-control" name="bookName" id="bookName" maxlength="75">
+                        <input type="text" class="form-control" name="bookName" id="bookName" minlength="5"
+                               maxlength="75" placeholder="Enter book title..." required>
                     </div>
                 </div>
-                <div class="col-3"></div>
+                <div class="col-2"></div>
             </div>
+
             <div class="row">
-                <div class="col-3"></div>
-                <div class="col-2">
+                <div class="col-2"></div>
+                <div class="col-3">
                     <div class="form-group">
                         <label for="authorId">Author Name:</label>
                         <select class="form-control" name="authorId" id="authorId">
@@ -38,10 +44,11 @@
                         </select>
                     </div>
                 </div>
-                <div class="col-2">
+                <div class="col-3">
                     <div class="form-group">
                         <label for="ISBN">ISBN:</label>
-                        <input type="text" class="form-control" name="ISBN" id="ISBN" maxlength="13">
+                        <input type="text" class="form-control" name="ISBN" id="ISBN" minlength="13" maxlength="13"
+                               placeholder="Enter ISBN..." required>
                     </div>
                 </div>
                 <div class="col-2">
@@ -59,11 +66,12 @@
                         </select>
                     </div>
                 </div>
-                <div class="col-3"></div>
+                <div class="col-2"></div>
             </div>
+
             <div class="row">
-                <div class="col-4"></div>
-                <div class="col-2">
+                <div class="col-3"></div>
+                <div class="col-3">
                     <div class="form-group">
                         <label for="genreId">Genre:</label>
                         <select class="form-control" name="genreId" id="genreId">
@@ -78,7 +86,7 @@
                         </select>
                     </div>
                 </div>
-                <div class="col-2">
+                <div class="col-3">
                     <div class="form-group">
                         <label for="bookStatusId">Status:</label>
                         <select class="form-control" name="bookStatusId" id="bookStatusId">
@@ -93,19 +101,21 @@
                         </select>
                     </div>
                 </div>
-                <div class="col-4"></div>
+                <div class="col-3"></div>
             </div>
+
             <div class="row">
-                <div class="col-5"></div>
-                <div class="col-1">
+                <div class="col-4"></div>
+                <div class="col-2">
                     <input type="submit" class="form-control btn btn-primary" value="Add">
                 </div>
-                <div class="col-1">
+                <div class="col-2">
                     <a href="@routes.BookController.getHomePage"
                        class="form-control btn btn-danger">Cancel</a>
                 </div>
-                <div class="col-5"></div>
+                <div class="col-4"></div>
             </div>
         </form>
+        </div>
     </body>
 </html>
