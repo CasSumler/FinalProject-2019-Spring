@@ -4,16 +4,11 @@
         <meta charset="UTF-8">
         <title>Home Page</title>
         <link rel="stylesheet" href="/assets/lib/bootstrap/css/bootstrap.min.css">
+        <link rel="stylesheet" href="/assets/stylesheets/new.css">
     </head>
-    <body class="bg-light">
-        <div class="container">
-            <div class="row">
-                <div class="col-3"></div>
-                <div class="col-6">
-                    <h1>Welcome to Digital Library</h1>
-                </div>
-                <div class="col-3"></div>
-            </div>
+    <body background="/assets/images/booklistbackground.jpg">
+        <div class="container fill" id="map">
+            <h1 class="text-center"><strong>Welcome to Digital Library</strong></h1>
 
             <br>
 
@@ -21,24 +16,24 @@
                 <div class="col-2"></div>
                 <div class="col-3">
                     <a href="@routes.BookController.getList">
-                        <img src="/assets/images/librarybutton5.jpg" alt="Library" height="150">
+                        <img src="/assets/images/librarybutton.jpg" alt="Library" height="150">
                     </a>
                 </div>
-                <div class="col-2"></div>
+                <div class="col-3"></div>
                 <div class="col-3">
                     <a href="@routes.BookController.getAddBook">
                         <img src="/assets/images/addbookbutton.png" alt="Add Book" height="150">
                     </a>
                 </div>
-                <div class="col-2"></div>
+                <div class="col-1"></div>
             </div>
 
             <div class="row">
                 <div class="col-2"></div>
                 <div class="col-3"><strong>Library</strong></div>
-                <div class="col-2"></div>
+                <div class="col-3"></div>
                 <div class="col-3"><strong>Add Book</strong></div>
-                <div class="col-2"></div>
+                <div class="col-1"></div>
             </div>
 
             <br>
@@ -50,21 +45,21 @@
                         <img src="/assets/images/authorbutton.jpg" alt="Profile" height="150">
                     </a>
                 </div>
-                <div class="col-2"></div>
+                <div class="col-3"></div>
                 <div class="col-3">
                     <a href="@routes.BookController.getBookTypeReport">
                         <img src="/assets/images/categorybutton.png" alt="Category" height="150">
                     </a>
                 </div>
-                <div class="col-2"></div>
+                <div class="col-1"></div>
             </div>
 
             <div class="row">
                 <div class="col-2"></div>
                 <div class="col-3"><strong>Authors</strong></div>
-                <div class="col-2"></div>
+                <div class="col-3"></div>
                 <div class="col-3"><strong>Categories</strong></div>
-                <div class="col-2"></div>
+                <div class="col-1"></div>
             </div>
 
             <br>
@@ -73,24 +68,24 @@
                 <div class="col-2"></div>
                 <div class="col-3">
                     <a href="@routes.BookController.getGenreReport">
-                        <img src="/assets/images/genrebutton3.png" alt="Genres" height="150">
+                        <img src="/assets/images/genrebutton.png" alt="Genres" height="150">
                     </a>
                 </div>
-                <div class="col-2"></div>
+                <div class="col-3"></div>
                 <div class="col-3">
                     <a href="@routes.BookController.getBookStatusReport">
                         <img src="/assets/images/statusbutton.png" alt="Status" height="150">
                     </a>
                 </div>
-                <div class="col-2"></div>
+                <div class="col-1"></div>
             </div>
 
             <div class="row">
                 <div class="col-2"></div>
                 <div class="col-3"><strong>Genres</strong></div>
-                <div class="col-2"></div>
+                <div class="col-3"></div>
                 <div class="col-3"><strong>Status</strong></div>
-                <div class="col-2"></div>
+                <div class="col-1"></div>
             </div>
         </div>
     </body>
