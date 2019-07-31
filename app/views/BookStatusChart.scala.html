@@ -6,24 +6,29 @@
         <title>Book Status Chart</title>
         <link rel="stylesheet" href="/assets/lib/bootstrap/css/bootstrap.min.css">
         <link rel="stylesheet" href="/assets/lib/chart.js/dist/Chart.min.css">
+        <link rel="stylesheet" href="/assets/stylesheets/new.css">
         <script type="text/javascript" src="/assets/lib/chart.js/dist/Chart.min.js"></script>
     </head>
     <body class="bg-light">
+        <div class="jumbotron">
+            <h1 class="text-center"><font color="white" size="20">DIGITAL LIBRARY</font></h1>
+        </div>
         <div class="container">
-            <h1 class="text-left">Status Summary</h1>
+            <h2 class="text-center">Status Summary</h2>
+            <br>
             <div class="row">
                 <div class="col-4">
                     <table class="table table-striped">
                         <tr>
                             <th>Status</th>
-                            <th>Total Book Count</th>
+                            <th class="text-right">Total Book Count</th>
                         </tr>
                         @for(bookStatusSummary <- bookStatusSummaries){
                         <tr>
                             <td>
                                 <a href="@routes.BookController.getStatusesList(bookStatusSummary.getBookStatusId)">@bookStatusSummary.getBookStatusName</a>
                             </td>
-                            <td>@bookStatusSummary.getTotalStatusCount</td>
+                            <td class="text-right">@bookStatusSummary.getTotalStatusCount</td>
                         </tr>
                         }
                     </table>

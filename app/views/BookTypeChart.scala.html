@@ -6,22 +6,26 @@
         <title>Book Category Chart</title>
         <link rel="stylesheet" href="/assets/lib/bootstrap/css/bootstrap.min.css">
         <link rel="stylesheet" href="/assets/lib/chart.js/dist/Chart.min.css">
+        <link rel="stylesheet" href="/assets/stylesheets/new.css">
         <script type="text/javascript" src="/assets/lib/chart.js/dist/Chart.min.js"></script>
     </head>
     <body class="bg-light">
+        <div class="jumbotron">
+            <h1 class="text-center"><font color="white" size="20">DIGITAL LIBRARY</font></h1>
+        </div>
         <div class="container">
-            <h1 class="text-left">Category Summary</h1>
+            <h2 class="text-center">Category Summary</h2>
             <div class="row">
                 <div class="col-4">
                     <table class="table table-striped">
                         <tr>
-                            <th>Category</th>
-                            <th>Total Book Count</th>
+                            <th class="text-center">Category</th>
+                            <th class="text-center">Total Book Count</th>
                         </tr>
                         @for(bookTypeSummary <- bookTypeSummaries){
                         <tr>
-                            <td>@bookTypeSummary.getBookTypeName</td>
-                            <td>@bookTypeSummary.getTotalTypeCount</td>
+                            <td class="text-center">@bookTypeSummary.getBookTypeName</td>
+                            <td class="text-center">@bookTypeSummary.getTotalTypeCount</td>
                         </tr>
                         }
                     </table>

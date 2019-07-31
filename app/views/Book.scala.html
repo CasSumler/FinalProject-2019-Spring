@@ -5,25 +5,33 @@
         <meta charset="UTF-8">
         <title>Library</title>
         <link rel="stylesheet" href="/assets/lib/bootstrap/css/bootstrap.min.css">
+        <link rel="stylesheet" href="/assets/stylesheets/new.css">
     </head>
     <body class="bg-light">
-        <div class="container fill" id="map">
-                <h1 class="text-center">Library</h1>
+        <div class="jumbotron">
+            <h1 class="text-center"><font color="white" size="20">DIGITAL LIBRARY</font></h1>
+        </div>
+
+        <div class="container">
             <div class="row">
-                <div class="col-6">
+                <div class="col-8">
                     <form>
                         <div class="form-group">
-                            <input type="text" class="form-control" name="searchName" id="searchName" maxlength="25"
-                                   placeholder="Enter Book Title...">
+                            <div class="row">
+                                <div class="col-10">
+                                    <input type="text" class="form-control" name="searchName" id="searchName"
+                                           placeholder="Enter Book Title...">
+                                </div>
+                                <div class="col-2">
+                                    <input type="submit" class="btn btn-primary" value="Search">
+                                </div>
+                            </div>
                         </div>
                     </form>
                 </div>
-                <div class="col-2">
-                    <input type="submit" class="form-control btn btn-primary" value="Search">
-                </div>
                 <div class="col-2"></div>
                 <div class="col-2">
-                    <a href="@routes.BookController.getAddBook" class="btn btn-danger" role="button">Add Book</a>
+                    <a href="@routes.BookController.getAddBook" class="form-control btn btn-danger" role="button">Add Book</a>
                 </div>
             </div>
 

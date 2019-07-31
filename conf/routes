@@ -44,8 +44,6 @@ POST    /addbook                    controllers.BookController.postAddBook
 GET     /editbook/:id               controllers.BookController.getEditBook(id : Integer)
 POST    /editbook/:id               controllers.BookController.postEditBook(id : Integer)
 
-GET     /chartdemo                  controllers.ChartDemoController.getDemo
-
 GET     /bookstatuschart            controllers.BookController.getBookStatusReport
 GET     /booktypechart              controllers.BookController.getBookTypeReport
 GET     /genrechart                 controllers.BookController.getGenreReport

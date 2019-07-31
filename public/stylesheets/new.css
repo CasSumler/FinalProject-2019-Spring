@@ -16,5 +16,6 @@ html, body{
 }
 
 .jumbotron {
-    background-image: url("/assets/images/booklistbackground.jpg");
+    background-image: url("/assets/images/jumbotron.jpg");
+    background-size: contain;
 }

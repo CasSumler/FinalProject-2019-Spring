@@ -5,20 +5,25 @@
         <meta charset="UTF-8">
         <title>Genres</title>
         <link rel="stylesheet" href="/assets/lib/bootstrap/css/bootstrap.min.css">
+        <link rel="stylesheet" href="/assets/stylesheets/new.css">
     </head>
     <body class="bg-light">
+        <div class="jumbotron">
+            <h1 class="text-center"><font color="white" size="20">DIGITAL LIBRARY</font></h1>
+        </div>
         <div class="container">
-            <h1 class="text-center">All Genres</h1>
+            <h2 class="text-center">All Genres</h2>
+            <br>
             <div class="row">
                 <div class="col-4"></div>
                 <div class="col-3">
-                    <ul>
+                    <ol>
                         @for(genre <- genres){
                         <li>
                             <a href="@routes.BookController.getEditGenre(genre.getGenreId)">@genre.getGenreName</a>
                         </li>
                         }
-                    </ul>
+                    </ol>
                 </div>
                 <div class="col-5">
                     <p><a href="@routes.BookController.getHomePage">Home</a></p>
