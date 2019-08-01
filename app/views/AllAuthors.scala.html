@@ -8,6 +8,35 @@
         <link rel="stylesheet" href="/assets/stylesheets/new.css">
     </head>
     <body class="bg-light">
+
+        <nav class="navbar navbar-expand-sm bg-dark navbar-primary fixed-top justify-content-center">
+            <ul class="navbar-nav nav-fill w-100">
+                <li class="nav-item">
+                    <a class="nav-link" href="@routes.BookController.getHomePage">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="@routes.BookController.getList">Library</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="@routes.BookController.getAddBook">Add Book</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="@routes.BookController.getAuthorSummaryList">Authors</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="@routes.BookController.getBookTypeReport">Categories</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="@routes.BookController.getGenreReport">Genres</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="@routes.BookController.getBookStatusReport">Status</a>
+                </li>
+            </ul>
+        </nav>
+
+        <br><br>
+
         <div class="jumbotron">
             <h1 class="text-center"><font color="white" size="28">DIGITAL LIBRARY</font></h1>
         </div>

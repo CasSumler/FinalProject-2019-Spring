@@ -6,73 +6,60 @@
         <link rel="stylesheet" href="/assets/lib/bootstrap/css/bootstrap.min.css">
         <link rel="stylesheet" href="/assets/stylesheets/new.css">
     </head>
-    <body background="/assets/images/booklistbackground.jpg">
-        <div class="container fill" id="map">
-            <h1 class="text-center"><strong>Welcome to Digital Library</strong></h1>
-
-            <br>
-
+    <body>
+        <div class="jumbotron">
+            <h1 class="text-center"><font color="white" size="20">Welcome to Digital Library</font></h1>
+        </div>
+        <div class="container">
             <div class="row">
-                <div class="col-2"></div>
-                <div class="col-3">
+                <div class="col-1"></div>
+                <div class="col-2">
                     <a href="@routes.BookController.getList">
                         <img src="/assets/images/librarybutton.jpg" alt="Library" height="150">
                     </a>
                 </div>
-                <div class="col-3"></div>
-                <div class="col-3">
+                <div class="col-2"></div>
+                <div class="col-2">
                     <a href="@routes.BookController.getAddBook">
                         <img src="/assets/images/addbookbutton.png" alt="Add Book" height="150">
                     </a>
                 </div>
-                <div class="col-1"></div>
-            </div>
-
-            <div class="row">
                 <div class="col-2"></div>
-                <div class="col-3"><strong>Library</strong></div>
-                <div class="col-3"></div>
-                <div class="col-3"><strong>Add Book</strong></div>
-                <div class="col-1"></div>
-            </div>
-
-            <br>
-
-            <div class="row">
-                <div class="col-2"></div>
-                <div class="col-3">
+                <div class="col-2">
                     <a href="@routes.BookController.getAuthorSummaryList">
                         <img src="/assets/images/authorbutton.jpg" alt="Profile" height="150">
                     </a>
                 </div>
-                <div class="col-3"></div>
-                <div class="col-3">
+                <div class="col-1"></div>
+            </div>
+
+            <div class="row">
+                <div class="col-1"></div>
+                <div class="col-2"><strong>Library</strong></div>
+                <div class="col-2"></div>
+                <div class="col-2"><strong>Add Book</strong></div>
+                <div class="col-2"></div>
+                <div class="col-2"><strong>Authors</strong></div>
+                <div class="col-1"></div>
+            </div>
+
+            <br><br><br><br>
+
+            <div class="row">
+                <div class="col-1"></div>
+                <div class="col-2">
                     <a href="@routes.BookController.getBookTypeReport">
                         <img src="/assets/images/categorybutton.png" alt="Category" height="150">
                     </a>
                 </div>
-                <div class="col-1"></div>
-            </div>
-
-            <div class="row">
                 <div class="col-2"></div>
-                <div class="col-3"><strong>Authors</strong></div>
-                <div class="col-3"></div>
-                <div class="col-3"><strong>Categories</strong></div>
-                <div class="col-1"></div>
-            </div>
-
-            <br>
-
-            <div class="row">
-                <div class="col-2"></div>
-                <div class="col-3">
+                <div class="col-2">
                     <a href="@routes.BookController.getGenreReport">
                         <img src="/assets/images/genrebutton.png" alt="Genres" height="150">
                     </a>
                 </div>
-                <div class="col-3"></div>
-                <div class="col-3">
+                <div class="col-2"></div>
+                <div class="col-2">
                     <a href="@routes.BookController.getBookStatusReport">
                         <img src="/assets/images/statusbutton.png" alt="Status" height="150">
                     </a>
@@ -81,10 +68,12 @@
             </div>
 
             <div class="row">
+                <div class="col-1"></div>
+                <div class="col-2"><strong>Categories</strong></div>
                 <div class="col-2"></div>
-                <div class="col-3"><strong>Genres</strong></div>
-                <div class="col-3"></div>
-                <div class="col-3"><strong>Status</strong></div>
+                <div class="col-2"><strong>Genres</strong></div>
+                <div class="col-2"></div>
+                <div class="col-2"><strong>Status</strong></div>
                 <div class="col-1"></div>
             </div>
         </div>
