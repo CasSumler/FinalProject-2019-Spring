@@ -44,7 +44,7 @@
             <h2 class="text-center">Authors</h2>
             <br>
             <div class="row">
-                <div class="col-1"></div>
+                <div class="col-2"></div>
                 <div class="col-5">
                     <form>
                         <div class="form-group">
@@ -60,11 +60,11 @@
                         </div>
                     </form>
                 </div>
-                <div class="col-3"></div>
+                <div class="col-1"></div>
                 <div class="col-2">
                     <a href="@routes.BookController.getAddAuthor" class="form-control btn btn-danger" role="button">Add Author</a>
                 </div>
-                <div class="col-1"></div>
+                <div class="col-2"></div>
             </div>
 
             <div class="row">
@@ -96,12 +96,13 @@
                 <div class="col-2">
                     <p>Total: @authorSummaries.size</p>
                 </div>
-                <div class="col-5"></div>
+                <div class="col-4"></div>
                 <div class="col-2">
-                    <p><a href="@routes.BookController.getAuthorList">All Authors</a></p>
+                    <a href="@routes.BookController.getAuthorList" class="form-control btn btn-success">All Authors</a>
                 </div>
-                <div class="col-1"></div>
+                <div class="col-2"></div>
             </div>
         </div>
+        <br>
     </body>
 </html>

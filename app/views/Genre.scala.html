@@ -44,8 +44,8 @@
             <h2 class="text-center">All Genres</h2>
             <br>
             <div class="row">
-                <div class="col-4"></div>
-                <div class="col-3">
+                <div class="col-3"></div>
+                <div class="col-4">
                     <ol>
                         @for(genre <- genres){
                         <li>
@@ -54,10 +54,12 @@
                         }
                     </ol>
                 </div>
-                <div class="col-5">
-                    <p><a href="@routes.BookController.getAddGenre">Add New Genre</a></p>
+                <div class="col-3">
+                    <a href="@routes.BookController.getAddGenre" class="form-control btn btn-success">Add New Genre</a>
                 </div>
+                <div class="col-2"></div>
             </div>
         </div>
+        <br>
     </body>
 </html>

@@ -49,17 +49,24 @@
                 <div class="col-4">
                     <table class="table table-striped">
                         <tr>
-                            <th class="text-left">Genre</th>
+                            <th class="text-center">Genre</th>
                             <th class="text-center">Total Book Count</th>
                         </tr>
                         @for(genreSummary <- genreSummaries){
                         <tr>
-                            <td class="text-left">@genreSummary.getGenreName</td>
-                            <td class="text-right">@genreSummary.getTotalGenreCount</td>
+                            <td class="text-center">@genreSummary.getGenreName</td>
+                            <td class="text-center">@genreSummary.getTotalGenreCount</td>
                         </tr>
                         }
                     </table>
-                    <p><a href="@routes.BookController.getGenreList">Complete Genre List</a></p>
+                    <div class="row">
+                        <div class="col-2"></div>
+                        <div class="col-8">
+                            <a href="@routes.BookController.getGenreList"
+                               class="form-control btn btn-info">All Genres</a>
+                        </div>
+                        <div class="col-2"></div>
+                    </div>
                 </div>
                 <div class="col-1"></div>
                 <div class="col-7">
@@ -69,5 +76,6 @@
                 </div>
             </div>
         </div>
+        <br>
     </body>
 </html>

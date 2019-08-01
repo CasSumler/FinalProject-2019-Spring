@@ -44,6 +44,7 @@
         </div>
         <div class="container">
             <h2 class="text-center">Category Summary</h2>
+            <br>
             <div class="row">
                 <div class="col-4">
                     <table class="table table-striped">
@@ -58,7 +59,14 @@
                         </tr>
                         }
                     </table>
-                    <p><a href="@routes.BookController.getTypeList">All Categories List</a></p>
+                    <div class="row">
+                        <div class="col-2"></div>
+                        <div class="col-8">
+                            <a href="@routes.BookController.getTypeList"
+                               class="form-control btn btn-info">All Categories</a>
+                        </div>
+                        <div class="col-2"></div>
+                    </div>
                 </div>
                 <div class="col-1"></div>
                 <div class="col-7">
@@ -68,5 +76,6 @@
                 </div>
             </div>
         </div>
+        <br>
     </body>
 </html>

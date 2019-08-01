@@ -42,9 +42,10 @@
         </div>
         <div class="container">
             <h2 class="text-center">All Categories</h2>
+            <br>
             <div class="row">
-                <div class="col-4"></div>
-                <div class="col-3">
+                <div class="col-3"></div>
+                <div class="col-4">
                     <ol>
                         @for(bookType <- bookTypes){
                         <li>
@@ -53,19 +54,12 @@
                         }
                     </ol>
                 </div>
-                <div class="col-5">
-                    <p><a href="@routes.BookController.getAddType">Add New Category</a></p>
-                    <p><a href="@routes.BookController.getBookTypeReport">Category Summary</a></p>
+                <div class="col-3">
+                    <a href="@routes.BookController.getAddType" class="form-control btn btn-success">Add New Category</a>
                 </div>
-            </div>
-
-            <div class="row">
-                <div class="col-4"></div>
-                <div class="col-1">
-                    <p>Total: @bookTypes.size</p>
-                </div>
-                <div class="col-7"></div>
+                <div class="col-2"></div>
             </div>
         </div>
+        <br>
     </body>
 </html>
