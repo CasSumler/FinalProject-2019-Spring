@@ -47,4 +47,17 @@ public class GenreRepository
         return query.getSingleResult();
     }
 
+    public List<GenreInfo> getGenreList(int genreId)
+    {
+        String sql = "SELECT NEW GenreInfo(g.genreId, g.genreName, b.bookName, a.firstName, a.lastName) " +
+                "FROM Book b " +
+                "JOIN Genre g ON b.genreId = g.genreId " +
+                "JOIN Author a ON b.authorId = a.authorId " +
+                "WHERE g.genreId = :genreId " +
+                "ORDER BY b.bookName";
+        TypedQuery<GenreInfo> query = jpaApi.em().createQuery(sql, GenreInfo.class);
+        query.setParameter("genreId", genreId);
+        return query.getResultList();
+    }
+
 }

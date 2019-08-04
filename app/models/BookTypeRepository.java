@@ -46,4 +46,17 @@ public class BookTypeRepository
     {
         jpaApi.em().persist(bookType);
     }
+
+    public List<BookTypeInfo> getTypeList(int bookTypeId)
+    {
+        String sql = "SELECT NEW BookTypeInfo(bt.bookTypeId, bt.bookTypeName, b.bookName, a.firstName, a.lastName) " +
+                "FROM Book b " +
+                "JOIN BookType bt ON b.bookTypeId = bt.bookTypeId " +
+                "JOIN Author a ON b.authorId = a.authorId " +
+                "WHERE bt.bookTypeId = :bookTypeId " +
+                "ORDER BY b.bookName";
+        TypedQuery<BookTypeInfo> query = jpaApi.em().createQuery(sql, BookTypeInfo.class);
+        query.setParameter("bookTypeId", bookTypeId);
+        return query.getResultList();
+    }
 }

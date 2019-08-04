@@ -1,16 +1,13 @@
-@(genreSummaries : List[GenreSummary], dataPoints : String, dataLabels : String)
+@(genreInfos: List[GenreInfo], genre : Genre)
 @doctype.render
 <html lang="en">
     <head>
         <meta charset="UTF-8">
-        <title>Genre Chart</title>
+        <title>@genre.getGenreName Books</title>
         <link rel="stylesheet" href="/assets/lib/bootstrap/css/bootstrap.min.css">
-        <link rel="stylesheet" href="/assets/lib/chart.js/dist/Chart.min.css">
         <link rel="stylesheet" href="/assets/stylesheets/new.css">
-        <script type="text/javascript" src="/assets/lib/chart.js/dist/Chart.min.js"></script>
     </head>
     <body class="bg-light">
-
         <nav class="navbar navbar-expand-sm bg-dark navbar-primary fixed-top justify-content-center">
             <ul class="navbar-nav nav-fill w-100">
                 <li class="nav-item">
@@ -42,42 +39,28 @@
         <div class="jumbotron">
             <h1 class="text-center"><font color="white" size="20">DIGITAL LIBRARY</font></h1>
         </div>
+
         <div class="container">
-            <h2 class="text-center">Genre Summary</h2>
+            <h2 class="text-center">@genre.getGenreName Books</h2>
             <br>
             <div class="row">
-                <div class="col-4">
-                    <table class="table table-striped">
+                <div class="col-1"></div>
+                <div class="col-10">
+                    <table class="table table-striped thead-dark table-hover">
                         <tr>
-                            <th class="text-center">Genre</th>
-                            <th class="text-center">Total Book Count</th>
+                            <th>Book Title</th>
+                            <th>Author Name</th>
                         </tr>
-                        @for(genreSummary <- genreSummaries){
+                        @for(genreInfo <- genreInfos){
                         <tr>
-                            <td class="text-center">
-                                <a href="@routes.BookController.getGenresList(genreSummary.getGenreId)">@genreSummary.getGenreName</a>
-                            </td>
-                            <td class="text-center">@genreSummary.getTotalGenreCount</td>
+                            <td>@genreInfo.getBookName</td>
+                            <td>@genreInfo.getFirstName @genreInfo.getLastName</td>
                         </tr>
                         }
                     </table>
-                    <div class="row">
-                        <div class="col-2"></div>
-                        <div class="col-8">
-                            <a href="@routes.BookController.getGenreList"
-                               class="form-control btn btn-info">All Genres</a>
-                        </div>
-                        <div class="col-2"></div>
-                    </div>
                 </div>
                 <div class="col-1"></div>
-                <div class="col-7">
-                    <canvas id="totalGenreCount" width="150" height="150"
-                            data-points="@dataPoints" data-labels="@dataLabels"></canvas>
-                    <script type="text/javascript" src="/assets/javascripts/totalGenreCount.js"></script>
-                </div>
             </div>
         </div>
-        <br>
     </body>
 </html>

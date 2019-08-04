@@ -360,4 +360,22 @@ public class BookController extends Controller
 
         return ok(views.html.StatusList.render(bookStatusInfos, bookStatus));
     }
+
+    @Transactional(readOnly = true)
+    public Result getTypesList(int bookTypeId)
+    {
+        List<BookTypeInfo> bookTypeInfos = bookTypeRepository.getTypeList(bookTypeId);
+        BookType bookType = bookTypeRepository.get(bookTypeId);
+
+        return ok(views.html.TypeList.render(bookTypeInfos, bookType));
+    }
+
+    @Transactional(readOnly = true)
+    public Result getGenresList(int genreId)
+    {
+        List<GenreInfo> genreInfos = genreRepository.getGenreList(genreId);
+        Genre genre = genreRepository.get(genreId);
+
+        return ok(views.html.GenreList.render(genreInfos, genre));
+    }
 }

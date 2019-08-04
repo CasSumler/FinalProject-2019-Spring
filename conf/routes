@@ -27,6 +27,9 @@ POST    /editauthor/:id             controllers.BookController.postEditAuthor(id
 GET     /statuses                   controllers.BookController.getStatusList
 GET     /status/:id                 controllers.BookController.getStatusesList(id : Integer)
 
+GET     /category/:id               controllers.BookController.getTypesList(id : Integer)
+GET     /genre/:id                  controllers.BookController.getGenresList(id : Integer)
+
 GET     /categories                 controllers.BookController.getTypeList
 GET     /addcategory                controllers.BookController.getAddType
 POST    /addcategory                controllers.BookController.postAddType

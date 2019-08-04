@@ -54,7 +54,9 @@
                         </tr>
                         @for(bookTypeSummary <- bookTypeSummaries){
                         <tr>
-                            <td class="text-center">@bookTypeSummary.getBookTypeName</td>
+                            <td class="text-center">
+                                <a href="@routes.BookController.getTypesList(bookTypeSummary.getBookTypeId)">@bookTypeSummary.getBookTypeName</a>
+                            </td>
                             <td class="text-center">@bookTypeSummary.getTotalTypeCount</td>
                         </tr>
                         }
