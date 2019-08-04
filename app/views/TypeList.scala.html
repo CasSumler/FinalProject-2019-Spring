@@ -50,11 +50,13 @@
                         <tr>
                             <th>Book Title</th>
                             <th>Author Name</th>
+                            <th>Status</th>
                         </tr>
                         @for(bookTypeInfo <- bookTypeInfos){
                         <tr>
                             <td>@bookTypeInfo.getBookName</td>
                             <td>@bookTypeInfo.getFirstName @bookTypeInfo.getLastName</td>
+                            <td>@bookTypeInfo.getBookStatusName</td>
                         </tr>
                         }
                     </table>

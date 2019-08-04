@@ -36,10 +36,11 @@ public class BookStatusRepository
 
     public List<BookStatusInfo> getStatusList(int bookStatusId)
     {
-        String sql = "SELECT NEW BookStatusInfo(bs.bookStatusId, bs.bookStatusName, b.bookName, a.firstName, a.lastName) " +
+        String sql = "SELECT NEW BookStatusInfo(bs.bookStatusId, bs.bookStatusName, b.bookName, a.firstName, a.lastName, bt.bookTypeName) " +
                 "FROM Book b " +
                 "JOIN BookStatus bs ON bs.bookStatusId = b.bookStatusId " +
                 "JOIN Author a ON a.authorId = b.authorId " +
+                "JOIN BookType bt ON bt.bookTypeId = b.bookTypeId " +
                 "WHERE bs.bookStatusId = :bookStatusId " +
                 "ORDER BY b.bookName";
         TypedQuery<BookStatusInfo> query = jpaApi.em().createQuery(sql, BookStatusInfo.class);

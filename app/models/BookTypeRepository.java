@@ -49,10 +49,11 @@ public class BookTypeRepository
 
     public List<BookTypeInfo> getTypeList(int bookTypeId)
     {
-        String sql = "SELECT NEW BookTypeInfo(bt.bookTypeId, bt.bookTypeName, b.bookName, a.firstName, a.lastName) " +
+        String sql = "SELECT NEW BookTypeInfo(bt.bookTypeId, bt.bookTypeName, b.bookName, a.firstName, a.lastName, bs.bookStatusName) " +
                 "FROM Book b " +
                 "JOIN BookType bt ON b.bookTypeId = bt.bookTypeId " +
                 "JOIN Author a ON b.authorId = a.authorId " +
+                "JOIN BookStatus bs ON b.bookStatusId = bs.bookStatusId " +
                 "WHERE bt.bookTypeId = :bookTypeId " +
                 "ORDER BY b.bookName";
         TypedQuery<BookTypeInfo> query = jpaApi.em().createQuery(sql, BookTypeInfo.class);

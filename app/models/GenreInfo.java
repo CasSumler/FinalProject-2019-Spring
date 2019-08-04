@@ -12,14 +12,16 @@ public class GenreInfo
     private String bookName;
     private String firstName;
     private String lastName;
+    private String bookStatusName;
 
-    public GenreInfo(int genreId, String genreName, String bookName, String firstName, String lastName)
+    public GenreInfo(int genreId, String genreName, String bookName, String firstName, String lastName, String bookStatusName)
     {
         this.genreId = genreId;
         this.genreName = genreName;
         this.bookName = bookName;
         this.firstName = firstName;
         this.lastName = lastName;
+        this.bookStatusName = bookStatusName;
     }
 
     public int getGenreId()
@@ -45,5 +47,10 @@ public class GenreInfo
     public String getLastName()
     {
         return lastName;
+    }
+
+    public String getBookStatusName()
+    {
+        return bookStatusName;
     }
 }

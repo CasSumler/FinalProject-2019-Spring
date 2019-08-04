@@ -49,10 +49,11 @@ public class GenreRepository
 
     public List<GenreInfo> getGenreList(int genreId)
     {
-        String sql = "SELECT NEW GenreInfo(g.genreId, g.genreName, b.bookName, a.firstName, a.lastName) " +
+        String sql = "SELECT NEW GenreInfo(g.genreId, g.genreName, b.bookName, a.firstName, a.lastName, bs.bookStatusName) " +
                 "FROM Book b " +
                 "JOIN Genre g ON b.genreId = g.genreId " +
                 "JOIN Author a ON b.authorId = a.authorId " +
+                "JOIN BookStatus bs ON b.bookStatusId = bs.bookStatusId " +
                 "WHERE g.genreId = :genreId " +
                 "ORDER BY b.bookName";
         TypedQuery<GenreInfo> query = jpaApi.em().createQuery(sql, GenreInfo.class);

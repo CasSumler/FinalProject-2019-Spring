@@ -12,14 +12,16 @@ public class BookStatusInfo
     private String bookName;
     private String firstName;
     private String lastName;
+    private String bookTypeName;
 
-    public BookStatusInfo(int bookStatusId, String bookStatusName, String bookName, String firstName, String lastName)
+    public BookStatusInfo(int bookStatusId, String bookStatusName, String bookName, String firstName, String lastName, String bookTypeName)
     {
         this.bookStatusId = bookStatusId;
         this.bookStatusName = bookStatusName;
         this.bookName = bookName;
         this.firstName = firstName;
         this.lastName = lastName;
+        this.bookTypeName = bookTypeName;
     }
 
     public int getBookStatusId()
@@ -45,5 +47,10 @@ public class BookStatusInfo
     public String getLastName()
     {
         return lastName;
+    }
+
+    public String getBookTypeName()
+    {
+        return bookTypeName;
     }
 }
