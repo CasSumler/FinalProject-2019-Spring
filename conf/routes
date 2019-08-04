@@ -29,6 +29,7 @@ GET     /status/:id                 controllers.BookController.getStatusesList(i
 
 GET     /category/:id               controllers.BookController.getTypesList(id : Integer)
 GET     /genre/:id                  controllers.BookController.getGenresList(id : Integer)
+GET     /author/:id                 controllers.BookController.getAuthorsList(id : Integer)
 
 GET     /categories                 controllers.BookController.getTypeList
 GET     /addcategory                controllers.BookController.getAddType

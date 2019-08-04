@@ -378,4 +378,13 @@ public class BookController extends Controller
 
         return ok(views.html.GenreList.render(genreInfos, genre));
     }
+
+    @Transactional(readOnly = true)
+    public Result getAuthorsList(int authorId)
+    {
+        List<AuthorInfo> authorInfos = authorRepository.getSingleAuthorList(authorId);
+        Author author = authorRepository.get(authorId);
+
+        return ok(views.html.AuthorList.render(authorInfos, author));
+    }
 }

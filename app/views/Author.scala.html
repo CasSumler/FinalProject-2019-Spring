@@ -79,10 +79,10 @@
                         @for(authorSummary <- authorSummaries){
                         <tr>
                             <td class="text-center">
-                                <a href="@routes.BookController.getEditAuthor(authorSummary.getAuthorId)">@authorSummary.getLastName</a>
+                                <a href="@routes.BookController.getAuthorsList(authorSummary.getAuthorId)">@authorSummary.getLastName</a>
                             </td>
                             <td class="text-center">
-                                <a href="@routes.BookController.getEditAuthor(authorSummary.getAuthorId)">@authorSummary.getFirstName</a>
+                                <a href="@routes.BookController.getAuthorsList(authorSummary.getAuthorId)">@authorSummary.getFirstName</a>
                             </td>
                             <td class="text-center">@authorSummary.getTotalBookCount</td>
                         </tr>

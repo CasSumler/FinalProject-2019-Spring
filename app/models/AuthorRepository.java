@@ -92,5 +92,16 @@ public class AuthorRepository
         return query.getSingleResult();
     }
 
-
+    public List<AuthorInfo> getSingleAuthorList(int authorId)
+    {
+        String sql = "SELECT NEW AuthorInfo(b.authorId, b.bookName, bt.bookTypeName, bs.bookStatusName) " +
+                "FROM Book b " +
+                "JOIN BookType bt on b.bookTypeId = bt.bookTypeId " +
+                "JOIN BookStatus bs ON b.bookStatusId = bs.bookStatusId " +
+                "WHERE b.authorId = :authorId " +
+                "ORDER BY b.bookName";
+        TypedQuery<AuthorInfo> query = jpaApi.em().createQuery(sql, AuthorInfo.class);
+        query.setParameter("authorId", authorId);
+        return query.getResultList();
+    }
 }

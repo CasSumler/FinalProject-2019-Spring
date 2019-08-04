@@ -1,0 +1,67 @@
+@(authorInfos: List[AuthorInfo], author : Author)
+@doctype.render
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Author Books</title>
+        <link rel="stylesheet" href="/assets/lib/bootstrap/css/bootstrap.min.css">
+        <link rel="stylesheet" href="/assets/stylesheets/new.css">
+    </head>
+    <body class="bg-light">
+        <nav class="navbar navbar-expand-sm bg-dark navbar-primary fixed-top justify-content-center">
+            <ul class="navbar-nav nav-fill w-100">
+                <li class="nav-item">
+                    <a class="nav-link" href="@routes.BookController.getHomePage">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="@routes.BookController.getList">Library</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="@routes.BookController.getAddBook">Add Book</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="@routes.BookController.getAuthorSummaryList">Authors</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="@routes.BookController.getBookTypeReport">Categories</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="@routes.BookController.getGenreReport">Genres</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="@routes.BookController.getBookStatusReport">Status</a>
+                </li>
+            </ul>
+        </nav>
+
+        <br><br>
+
+        <div class="jumbotron">
+            <h1 class="text-center"><font color="white" size="20">DIGITAL LIBRARY</font></h1>
+        </div>
+        <div class="container">
+            <h2 class="text-center">@author.getFirstName @author.getLastName Books</h2>
+            <br>
+            <div class="row">
+                <div class="col-1"></div>
+                <div class="col-10">
+                    <table class="table table-striped thead-dark table-hover">
+                        <tr>
+                            <th>Book Title</th>
+                            <th>Category</th>
+                            <th>Status</th>
+                        </tr>
+                        @for(authorInfo <- authorInfos){
+                        <tr>
+                            <td>@authorInfo.getBookName</td>
+                            <td>@authorInfo.getBookTypeName</td>
+                            <td>@authorInfo.getBookStatusName</td>
+                        </tr>
+                        }
+                    </table>
+                </div>
+                <div class="col-1"></div>
+            </div>
+        </div>
+    </body>
+</html>
