@@ -64,24 +64,33 @@
                 </div>
             </div>
 
-            <table class="table table-striped thead-dark table-hover">
-                <tr>
-                    <th>Book Title</th>
-                    <th>Author</th>
-                    <th>Status</th>
-                </tr>
-                @for(book <- books){
-                <tr>
-                    <td>
-                        <a href="@routes.BookController.getBookInfo(book.getBookId)">@book.getBookName</a>
-                    </td>
-                    <td>@book.getLastName @book.getFirstName</td>
-                    <td>@book.getBookStatusName</td>
-                </tr>
-                }
-            </table>
-            <br>
-            Total Number of Books: @books.size
+            <div class="row">
+                <div class="col-12">
+                    <table class="table table-striped thead-dark table-hover">
+                        <tr>
+                            <th>Book Title</th>
+                            <th>Author</th>
+                            <th>Status</th>
+                        </tr>
+                        @for(book <- books){
+                        <tr>
+                            <td>
+                                <a href="@routes.BookController.getBookInfo(book.getBookId)">@book.getBookName</a>
+                            </td>
+                            <td>@book.getLastName @book.getFirstName</td>
+                            <td>@book.getBookStatusName</td>
+                        </tr>
+                        }
+                    </table>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-2">
+                    Total: @books.size
+                </div>
+                <div class="col-10"></div>
+            </div>
         </div>
     </body>
 </html>

@@ -46,12 +46,12 @@
             <div class="row">
                 <div class="col-2"></div>
                 <div class="col-3">
-                    <h3>Existing Authors</h3>
-                    <ol>
+                    <h3>Existing Authors:</h3>
+                    <select size="20">
                         @for(author <-authors){
-                        <li>@author.getFirstName @author.getLastName</li>
+                        <option value="@author.getFirstName @author.getLastName">@author.getFirstName @author.getLastName</option>
                         }
-                    </ol>
+                    </select>
                 </div>
                 <div class="col-6">
                     <form method="post" class="form-group">
