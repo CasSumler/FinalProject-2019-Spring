@@ -32,7 +32,7 @@
                     <a class="nav-link" href="@routes.BookController.getGenreReport">Genres</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="@routes.BookController.getBookStatusReport">Status</a>
+                    <a class="nav-link" href="@routes.BookController.getBookStatusReport">Statuses</a>
                 </li>
             </ul>
         </nav>
@@ -49,15 +49,15 @@
                 <div class="col-4">
                     <table class="table table-striped">
                         <tr>
-                            <th>Status</th>
-                            <th class="text-right">Total Book Count</th>
+                            <th class="text-center">Status</th>
+                            <th class="text-center">Total Book Count</th>
                         </tr>
                         @for(bookStatusSummary <- bookStatusSummaries){
                         <tr>
-                            <td>
+                            <td class="text-center">
                                 <a href="@routes.BookController.getStatusesList(bookStatusSummary.getBookStatusId)">@bookStatusSummary.getBookStatusName</a>
                             </td>
-                            <td class="text-right">@bookStatusSummary.getTotalStatusCount</td>
+                            <td class="text-center">@bookStatusSummary.getTotalStatusCount</td>
                         </tr>
                         }
                     </table>

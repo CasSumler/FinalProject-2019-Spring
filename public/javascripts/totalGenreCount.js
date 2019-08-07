@@ -61,7 +61,7 @@ var myChart = new Chart(ctx, {
             title: {
                 display: true,
                 text: 'Total Genre Count',
-                fontSize: 20
+                fontSize: 18
             }
     }
 });
