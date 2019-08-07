@@ -60,7 +60,7 @@ var myChart = new Chart(ctx, {
             },
             title: {
                 display: true,
-                text: 'Total Genre Count',
+                text: 'Total Book Count',
                 fontSize: 18
             }
     }

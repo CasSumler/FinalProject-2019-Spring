@@ -54,7 +54,7 @@ var myChart = new Chart(ctx, {
             },
             title: {
                 display: true,
-                text: 'Total Status Count',
+                text: 'Total Book Count',
                 fontSize: 18
             }
     }
