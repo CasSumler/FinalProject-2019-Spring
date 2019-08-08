@@ -16,14 +16,14 @@ public class BookTypeRepository
         this.jpaApi = jpaApi;
     }
 
-    public List<BookType> getList()
+    public List<BookType> getList()     //gets list of categories for dropdown and add page
     {
         String sql = "SELECT bt FROM BookType bt ORDER BY bt.bookTypeName";
         TypedQuery<BookType> query = jpaApi.em().createQuery(sql, BookType.class);
         return query.getResultList();
     }
 
-    public List<BookTypeSummary> getBookTypeSummary()
+    public List<BookTypeSummary> getBookTypeSummary()       //gets # of books in each category
     {
         String sql = "SELECT NEW BookTypeSummary(bt.bookTypeId, bt.bookTypeName, COUNT(*) AS totalTypeCount) " +
                 "FROM BookType bt " +
@@ -34,7 +34,7 @@ public class BookTypeRepository
         return query.getResultList();
     }
 
-    public BookType get(int bookTypeId)
+    public BookType get(int bookTypeId)     //gets category
     {
         String sql = "SELECT bt FROM BookType bt WHERE bookTypeId = :bookTypeId";
         TypedQuery<BookType> query = jpaApi.em().createQuery(sql, BookType.class);
@@ -42,12 +42,12 @@ public class BookTypeRepository
         return query.getSingleResult();
     }
 
-    public void add(BookType bookType)
+    public void add(BookType bookType)      //adds new category to database
     {
         jpaApi.em().persist(bookType);
     }
 
-    public List<BookTypeInfo> getTypeList(int bookTypeId)
+    public List<BookTypeInfo> getTypeList(int bookTypeId)       //gets every book under each category
     {
         String sql = "SELECT NEW BookTypeInfo(bt.bookTypeId, bt.bookTypeName, b.bookName, a.firstName, a.lastName, bs.bookStatusName) " +
                 "FROM Book b " +

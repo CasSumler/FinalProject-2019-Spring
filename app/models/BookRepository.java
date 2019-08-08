@@ -16,7 +16,7 @@ public class BookRepository
         this.jpaApi = jpaApi;
     }
 
-    public Book get(int bookId)
+    public Book get(int bookId)     //gets all info about a book based on bookId
     {
         String sql = "SELECT b FROM Book b WHERE bookId = :bookId";
         TypedQuery<Book> query = jpaApi.em().createQuery(sql, Book.class);
@@ -24,7 +24,7 @@ public class BookRepository
         return query.getSingleResult();
     }
 
-    public BookInfo getInfo(int bookId)
+    public BookInfo getInfo(int bookId)     //gets all book info (readable, not just FKs) to display on page
     {
         String sql = "SELECT NEW BookInfo(b.bookId, b.bookName, b.ISBN, a.firstName, a.lastName, bs.bookStatusName, bt.bookTypeName, g.genreName) " +
                 "FROM Book b " +
@@ -38,14 +38,14 @@ public class BookRepository
         return query.getSingleResult();
     }
 
-    public List<Book> getList()
+    public List<Book> getList()     //gets simple list of books
     {
         String sql = "SELECT b FROM Book b ORDER BY b.bookName";
         TypedQuery<Book> query = jpaApi.em().createQuery(sql, Book.class);
         return query.getResultList();
     }
 
-    public List<BookDetail> getDetailList(String searchName)
+    public List<BookDetail> getDetailList(String searchName)    //gets main list of books
     {
         String searchValue = searchName;
 
@@ -74,12 +74,12 @@ public class BookRepository
         return query.getResultList();
     }
 
-    public void addBook(Book book)
+    public void addBook(Book book)      //adds book to database
     {
         jpaApi.em().persist(book);
     }
 
-    public void deleteBook(Book book)
+    public void deleteBook(Book book)       //deletes book from database
     {
         jpaApi.em().remove(book);
     }

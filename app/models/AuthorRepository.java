@@ -16,14 +16,14 @@ public class AuthorRepository
         this.jpaApi = jpaApi;
     }
 
-    public List<Author> getList()
+    public List<Author> getList()       //gets simple list of all authors ordered by firstName; used for dropdowns
     {
         String sql = "SELECT a FROM Author a ORDER BY a.firstName";
         TypedQuery<Author> query = jpaApi.em().createQuery(sql, Author.class);
         return query.getResultList();
     }
 
-    public List<Author> getSearchList(String searchName)
+    public List<Author> getSearchList(String searchName)        //gets list of all authors in database
     {
         String searchValue = searchName;
 
@@ -50,12 +50,12 @@ public class AuthorRepository
         return query.getResultList();
     }
 
-    public void add(Author author)
+    public void add(Author author)      //adds an author to database
     {
         jpaApi.em().persist(author);
     }
 
-    public List<AuthorSummary> getDetailList(String searchName)
+    public List<AuthorSummary> getDetailList(String searchName)     //gets author list and how many books each has
     {
         String searchValue = searchName;
 
@@ -84,7 +84,7 @@ public class AuthorRepository
         return query.getResultList();
     }
 
-    public Author get(int authorId)
+    public Author get(int authorId)     //gets author name based on authorId
     {
         String sql = "SELECT a FROM Author a WHERE authorId = :authorId";
         TypedQuery<Author> query = jpaApi.em().createQuery(sql, Author.class);
@@ -92,7 +92,7 @@ public class AuthorRepository
         return query.getSingleResult();
     }
 
-    public List<AuthorInfo> getSingleAuthorList(int authorId)
+    public List<AuthorInfo> getSingleAuthorList(int authorId)       //gets every book associated with one author
     {
         String sql = "SELECT NEW AuthorInfo(b.authorId, b.bookName, bt.bookTypeName, bs.bookStatusName) " +
                 "FROM Book b " +

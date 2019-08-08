@@ -33,13 +33,13 @@ public class BookController extends Controller
         this.genreRepository = genreRepository;
     }
 
-    public Result getHomePage()
+    public Result getHomePage()         //gets home page
     {
         return ok(views.html.HomePage.render());
     }
 
     @Transactional(readOnly = true)
-    public Result getList()
+    public Result getList()             //gets main list of books in library
     {
         DynamicForm form = formFactory.form().bindFromRequest();
         String searchName = form.get("searchName");
@@ -50,7 +50,7 @@ public class BookController extends Controller
     }
 
     @Transactional(readOnly = true)
-    public Result getBookInfo(int bookId)
+    public Result getBookInfo(int bookId)   //gets all info related to each book
     {
         BookInfo bookInfo = bookRepository.getInfo(bookId);
 
@@ -58,7 +58,7 @@ public class BookController extends Controller
     }
 
     @Transactional
-    public Result postDeleteBook(int bookId)
+    public Result postDeleteBook(int bookId)    //deletes one book
     {
         Book book = bookRepository.get(bookId);
         bookRepository.deleteBook(book);
@@ -67,7 +67,7 @@ public class BookController extends Controller
     }
 
     @Transactional(readOnly = true)
-    public Result getAddBook()
+    public Result getAddBook()              //gets add book page
     {
         Book book = new Book();
         List<Author> authors = authorRepository.getList();
@@ -79,7 +79,7 @@ public class BookController extends Controller
     }
 
     @Transactional
-    public Result postAddBook()
+    public Result postAddBook()         //adds new book w/ all info into database
     {
         DynamicForm form = formFactory.form().bindFromRequest();
 
@@ -104,7 +104,7 @@ public class BookController extends Controller
     }
 
     @Transactional(readOnly = true)
-    public Result getEditBook(int bookId)
+    public Result getEditBook(int bookId)           //gets edit book page
     {
         Book book = bookRepository.get(bookId);
         List<Author> authors = authorRepository.getList();
@@ -116,7 +116,7 @@ public class BookController extends Controller
     }
 
     @Transactional
-    public Result postEditBook(int bookId)
+    public Result postEditBook(int bookId)          //saves changes associated with a book
     {
         DynamicForm form = formFactory.form().bindFromRequest();
         String bookName = form.get("bookName");
@@ -139,7 +139,7 @@ public class BookController extends Controller
     }
 
     @Transactional(readOnly = true)
-    public Result getAuthorList()
+    public Result getAuthorList()           //gets list of all authors in database
     {
         DynamicForm form = formFactory.form().bindFromRequest();
         String searchName = form.get("searchName");
@@ -149,7 +149,7 @@ public class BookController extends Controller
     }
 
     @Transactional(readOnly = true)
-    public Result getAuthorSummaryList()
+    public Result getAuthorSummaryList()        //gets all authors with books in database
     {
         DynamicForm form = formFactory.form().bindFromRequest();
         String searchName = form.get("searchName");
@@ -160,7 +160,7 @@ public class BookController extends Controller
     }
 
     @Transactional(readOnly = true)
-    public Result getAddAuthor()
+    public Result getAddAuthor()        //gets add author page
     {
         List<Author> authors = authorRepository.getList();
 
@@ -168,7 +168,7 @@ public class BookController extends Controller
     }
 
     @Transactional
-    public Result postAddAuthor()
+    public Result postAddAuthor()       //adds an author to database
     {
         DynamicForm form = formFactory.form().bindFromRequest();
 
@@ -184,7 +184,7 @@ public class BookController extends Controller
     }
 
     @Transactional(readOnly = true)
-    public Result getStatusList()
+    public Result getStatusList()       //gets list of all statuses
     {
         List<BookStatus> bookStatuses = bookStatusRepository.getList();
 
@@ -192,7 +192,7 @@ public class BookController extends Controller
     }
 
     @Transactional(readOnly = true)
-    public Result getTypeList()
+    public Result getTypeList()         //gets list of all book categories
     {
         List<BookType> bookTypes = bookTypeRepository.getList();
 
@@ -200,7 +200,7 @@ public class BookController extends Controller
     }
 
     @Transactional(readOnly = true)
-    public Result getGenreList()
+    public Result getGenreList()        //gets list of all genres
     {
         List<Genre> genres = genreRepository.getList();
 
@@ -208,7 +208,7 @@ public class BookController extends Controller
     }
 
     @Transactional(readOnly = true)
-    public Result getAddGenre()
+    public Result getAddGenre()     //gets add genre page
     {
         List<Genre> genres = genreRepository.getList();
 
@@ -216,7 +216,7 @@ public class BookController extends Controller
     }
 
     @Transactional
-    public Result postAddGenre()
+    public Result postAddGenre()    //adds new genre to database
     {
         DynamicForm form = formFactory.form().bindFromRequest();
 
@@ -229,7 +229,7 @@ public class BookController extends Controller
     }
 
     @Transactional
-    public Result getBookStatusReport()
+    public Result getBookStatusReport()     //gets status chart page
     {
         List<BookStatusSummary> bookStatusSummaries = bookStatusRepository.getBookStatusSummary();
 
@@ -243,7 +243,7 @@ public class BookController extends Controller
     }
 
     @Transactional
-    public Result getBookTypeReport()
+    public Result getBookTypeReport()       //gets category chart page
     {
         List<BookTypeSummary> bookTypeSummaries = bookTypeRepository.getBookTypeSummary();
 
@@ -257,7 +257,7 @@ public class BookController extends Controller
     }
 
     @Transactional
-    public Result getGenreReport()
+    public Result getGenreReport()      //gets genre chart page
     {
         List<GenreSummary> genreSummaries = genreRepository.getGenreSummary();
 
@@ -271,7 +271,7 @@ public class BookController extends Controller
     }
 
     @Transactional(readOnly = true)
-    public Result getEditAuthor(int authorId)
+    public Result getEditAuthor(int authorId)       //gets edit author page
     {
         Author author = authorRepository.get(authorId);
 
@@ -279,7 +279,7 @@ public class BookController extends Controller
     }
 
     @Transactional
-    public Result postEditAuthor(int authorId)
+    public Result postEditAuthor(int authorId)      //saves changes made to author name
     {
         DynamicForm form = formFactory.form().bindFromRequest();
         String firstName = form.get("firstName");
@@ -293,7 +293,7 @@ public class BookController extends Controller
     }
 
     @Transactional(readOnly = true)
-    public Result getEditGenre(int genreId)
+    public Result getEditGenre(int genreId)     //gets edit genre page
     {
         Genre genre = genreRepository.get(genreId);
 
@@ -301,7 +301,7 @@ public class BookController extends Controller
     }
 
     @Transactional
-    public Result postEditGenre(int genreId)
+    public Result postEditGenre(int genreId)        //saves changes made to genre
     {
         DynamicForm form = formFactory.form().bindFromRequest();
         String genreName = form.get("genreName");
@@ -312,7 +312,7 @@ public class BookController extends Controller
     }
 
     @Transactional(readOnly = true)
-    public Result getAddType()
+    public Result getAddType()      //gets category list page
     {
         List<BookType> bookTypes = bookTypeRepository.getList();
 
@@ -320,7 +320,7 @@ public class BookController extends Controller
     }
 
     @Transactional
-    public Result postAddType()
+    public Result postAddType()     //adds new category to database
     {
         DynamicForm form = formFactory.form().bindFromRequest();
 
@@ -333,7 +333,7 @@ public class BookController extends Controller
     }
 
     @Transactional(readOnly = true)
-    public Result getEditType(int bookTypeId)
+    public Result getEditType(int bookTypeId)       //gets edit category page
     {
         BookType bookType = bookTypeRepository.get(bookTypeId);
 
@@ -341,7 +341,7 @@ public class BookController extends Controller
     }
 
     @Transactional
-    public Result postEditType(int bookTypeId)
+    public Result postEditType(int bookTypeId)      //saves changes made to category name
     {
         DynamicForm form = formFactory.form().bindFromRequest();
         String bookTypeName = form.get("bookTypeName");
@@ -353,7 +353,7 @@ public class BookController extends Controller
     }
 
     @Transactional(readOnly = true)
-    public Result getStatusesList(int bookStatusId)
+    public Result getStatusesList(int bookStatusId)     //gets every book listed under a selected status
     {
         List<BookStatusInfo> bookStatusInfos = bookStatusRepository.getStatusList(bookStatusId);
         BookStatus bookStatus = bookStatusRepository.get(bookStatusId);
@@ -362,7 +362,7 @@ public class BookController extends Controller
     }
 
     @Transactional(readOnly = true)
-    public Result getTypesList(int bookTypeId)
+    public Result getTypesList(int bookTypeId)      //gets every book listed under a selected category
     {
         List<BookTypeInfo> bookTypeInfos = bookTypeRepository.getTypeList(bookTypeId);
         BookType bookType = bookTypeRepository.get(bookTypeId);
@@ -371,7 +371,7 @@ public class BookController extends Controller
     }
 
     @Transactional(readOnly = true)
-    public Result getGenresList(int genreId)
+    public Result getGenresList(int genreId)        //gets every book listed under a selected genre
     {
         List<GenreInfo> genreInfos = genreRepository.getGenreList(genreId);
         Genre genre = genreRepository.get(genreId);
@@ -380,7 +380,7 @@ public class BookController extends Controller
     }
 
     @Transactional(readOnly = true)
-    public Result getAuthorsList(int authorId)
+    public Result getAuthorsList(int authorId)      //gets every book listed under a selected author
     {
         List<AuthorInfo> authorInfos = authorRepository.getSingleAuthorList(authorId);
         Author author = authorRepository.get(authorId);

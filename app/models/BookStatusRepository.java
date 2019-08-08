@@ -16,14 +16,14 @@ public class BookStatusRepository
         this.jpaApi = jpaApi;
     }
 
-    public List<BookStatus> getList()
+    public List<BookStatus> getList()       //gets list of statuses for dropdowns
     {
         String sql = "SELECT bs FROM BookStatus bs ORDER BY bs.bookStatusId";
         TypedQuery<BookStatus> query = jpaApi.em().createQuery(sql, BookStatus.class);
         return query.getResultList();
     }
 
-    public List<BookStatusSummary> getBookStatusSummary()
+    public List<BookStatusSummary> getBookStatusSummary()       //gets # of books for each status as a list
     {
         String sql = "SELECT NEW BookStatusSummary(bs.bookStatusId, bs.bookStatusName, COUNT(*) AS totalStatusCount) " +
                 "FROM BookStatus bs " +
@@ -34,7 +34,7 @@ public class BookStatusRepository
         return query.getResultList();
     }
 
-    public List<BookStatusInfo> getStatusList(int bookStatusId)
+    public List<BookStatusInfo> getStatusList(int bookStatusId)     //gets info based on each status
     {
         String sql = "SELECT NEW BookStatusInfo(bs.bookStatusId, bs.bookStatusName, b.bookName, a.firstName, a.lastName, bt.bookTypeName) " +
                 "FROM Book b " +
@@ -48,7 +48,7 @@ public class BookStatusRepository
         return query.getResultList();
     }
 
-    public BookStatus get(int bookStatusId)
+    public BookStatus get(int bookStatusId)     //gets a book status
     {
         String sql = "SELECT bs FROM BookStatus bs WHERE bookStatusId = :bookStatusId";
         TypedQuery<BookStatus> query = jpaApi.em().createQuery(sql, BookStatus.class);

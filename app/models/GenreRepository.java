@@ -16,19 +16,19 @@ public class GenreRepository
         this.jpaApi = jpaApi;
     }
 
-    public List<Genre> getList()
+    public List<Genre> getList()    //gets list of genres for dropdown and add page
     {
         String sql = "SELECT g FROM Genre g ORDER BY g.genreName";
         TypedQuery<Genre> query = jpaApi.em().createQuery(sql, Genre.class);
         return query.getResultList();
     }
 
-    public void add(Genre genre)
+    public void add(Genre genre)        //adds new genre to database
     {
         jpaApi.em().persist(genre);
     }
 
-    public List<GenreSummary> getGenreSummary()
+    public List<GenreSummary> getGenreSummary()     //gets # of books in each genre
     {
         String sql = "SELECT NEW GenreSummary(g.genreId, g.genreName, COUNT(*) as totalGenreCount) " +
                 "FROM Genre g " +
@@ -39,7 +39,7 @@ public class GenreRepository
         return query.getResultList();
     }
 
-    public Genre get(int genreId)
+    public Genre get(int genreId)       //gets genre
     {
         String sql = "SELECT g FROM Genre g WHERE genreId = :genreId";
         TypedQuery<Genre> query = jpaApi.em().createQuery(sql, Genre.class);
@@ -47,7 +47,7 @@ public class GenreRepository
         return query.getSingleResult();
     }
 
-    public List<GenreInfo> getGenreList(int genreId)
+    public List<GenreInfo> getGenreList(int genreId)        //gets every book under each genre
     {
         String sql = "SELECT NEW GenreInfo(g.genreId, g.genreName, b.bookName, a.firstName, a.lastName, bs.bookStatusName) " +
                 "FROM Book b " +
