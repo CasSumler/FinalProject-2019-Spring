@@ -9,6 +9,8 @@ POST    /                           controllers.TestController.postTest
 GET     /test                       controllers.TestController.getTest
 POST    /test                       controllers.TestController.postTest
 
+GET     /login                      controllers.SessionController.getLogin
+
 GET     /genre                      controllers.GenreController.getList
 
 GET     /home                       controllers.BookController.getHomePage

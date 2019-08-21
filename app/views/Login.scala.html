@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Log In</title>
+        <link rel="stylesheet" href="/assets/lib/bootstrap/css/bootstrap.min.css">
+        <link rel="stylesheet" href="/assets/stylesheets/new.css">
+    </head>
+    <body class="bg-light">
+
+        <div class="jumbotron">
+            <h1 class="text-center"><font color="white" size="20">DIGITAL LIBRARY</font></h1>
+        </div>
+
+        <div class="container">
+            <form method="post">
+                @helper.CSRF.formField
+                <div class="row">
+                    <div class="col-4"></div>
+                    <div class="col-4">
+                        <div class="form-group">
+                            <label for="username">Username:</label>
+                            <input type="email" class="form-control" name="username" id="username">
+                        </div>
+                        <div class="form-group">
+                            <label for="password">Password:</label>
+                            <input type="password" class="form-control" name="password" id="password">
+                        </div>
+                        <input type="submit" value="Login" class="form-control btn btn-success">
+                    </div>
+                    <div class="col-4"></div>
+                </div>
+            </form>
+        </div>
+    </body>
+</html>
